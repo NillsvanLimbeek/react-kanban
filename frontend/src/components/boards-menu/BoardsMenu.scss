@@ -1,0 +1,58 @@
+.boards-menu {
+    flex: 0 0 15rem;
+
+    height: 100%;
+
+    margin-right: 2.5rem;
+    cursor: pointer;
+}
+
+.boards-menu__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+
+    &:hover {
+        .boards-menu__icon,
+        .boards-menu__title {
+            color: var(--color-black);
+        }
+    }
+}
+
+.boards-menu__icon {
+    color: lightgrey;
+    margin-right: 1rem;
+}
+
+.boards-menu__title {
+    color: lightgrey;
+}
+
+.boards-menu__menu {
+    padding: 1rem 2.5rem;
+}
+
+.boards-menu__add {
+    padding: 1rem 1.5rem;
+    color: var(--color-grey-dark);
+    cursor: pointer;
+
+    &:hover {
+        color: var(--color-black);
+    }
+}
+
+.boards-menu__add i {
+    padding: 7.5px;
+    margin-right: 1rem;
+    border: 1px dashed var(--color-grey-dark);
+    border-radius: var(--border-radius);
+    color: var(--color-grey-dark);
+}
+
+.create-board {
+    padding: 2rem;
+}

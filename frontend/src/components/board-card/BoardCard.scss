@@ -1,0 +1,15 @@
+.board-card {
+    display: flex;
+    justify-content: space-between;
+
+    height: 5rem;
+
+    padding: 1rem;
+    border: 1px solid black;
+    border-radius: var(--border-radius);
+    background: var(--color-white);
+}
+
+.board-card__title {
+    color: var(--color-black);
+}
