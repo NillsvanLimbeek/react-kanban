@@ -1,4 +1,5 @@
 import express, { Request, Response } from 'express';
+import { asyncHandler } from '../handlers/asyncHandler';
 import {
     getBoards,
     getBoard,
@@ -9,13 +10,13 @@ import {
 
 const router = express.Router();
 
-router.get('/', getBoards);
-router.get('/:id', getBoard);
+router.get('/', asyncHandler(getBoards));
+router.get('/:id', asyncHandler(getBoard));
 
-router.post('/', createBoard);
+router.post('/', asyncHandler(createBoard));
 
-router.put('/:id', updateBoard);
+router.put('/:id', asyncHandler(updateBoard));
 
-router.delete('/:id', deleteBoard);
+router.delete('/:id', asyncHandler(deleteBoard));
 
 export default router;
