@@ -141,7 +141,14 @@ export const Column = ({ column, cards, index, setNewColumn }: Props) => {
                             />
 
                             {dropdown && (
-                                <Dropdown open={dropdown}>Test</Dropdown>
+                                <Dropdown
+                                    open={dropdown}
+                                    onClickOutside={() =>
+                                        setDropdown(!dropdown)
+                                    }
+                                >
+                                    Test
+                                </Dropdown>
                             )}
                         </div>
                     </div>
