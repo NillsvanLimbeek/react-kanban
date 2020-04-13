@@ -4,6 +4,8 @@ import { Link, useHistory } from 'react-router-dom';
 import './BoardsList.scss';
 
 import { useBoardsState } from '../../context/boards/boardsContext';
+import { useColumnsState } from '../../context/columns/columnsContext';
+import { useCardsState } from '../../context/cards/cardsContext';
 
 import { IBoard } from '../../data/types/Board';
 
@@ -14,6 +16,8 @@ import { AddBoard } from '../../components/forms/add-board/AddBoard';
 
 export const BoardsList = () => {
     const { boards } = useBoardsState();
+    const { columns } = useColumnsState();
+    const { cards } = useCardsState();
 
     const [favorite, setFavorite] = useState(false);
     const [modal, setModal] = useState(false);
@@ -41,7 +45,12 @@ export const BoardsList = () => {
                     <div className="boards-list__list">
                         {boards.map((board) =>
                             board.favorite ? (
-                                <BoardCard board={board} key={board.id} />
+                                <BoardCard
+                                    board={board}
+                                    columns={columns}
+                                    cards={cards}
+                                    key={board.id}
+                                />
                             ) : null,
                         )}
                     </div>
@@ -54,7 +63,12 @@ export const BoardsList = () => {
                 <div className="boards-list__list">
                     {boards.map((board) => (
                         <Link to={`/board/${board.id}`} key={board.id}>
-                            <BoardCard board={board} key={board.id} />
+                            <BoardCard
+                                board={board}
+                                columns={columns}
+                                cards={cards}
+                                key={board.id}
+                            />
                         </Link>
                     ))}
 
