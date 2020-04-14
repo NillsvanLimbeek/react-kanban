@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 
 import './Card.scss';
@@ -11,23 +11,48 @@ import { CardModal } from '../forms/card/CardModal';
 
 type Props = {
     card: ICard;
-    index: number;
+    index?: number;
 };
 
 export const Card = ({ card, index }: Props) => {
     const [modal, setModal] = useState(false);
 
     return (
-        <Fragment>
-            <Draggable draggableId={card.id} index={index}>
-                {(provided) => (
-                    <div
-                        className="card"
-                        onClick={() => setModal(true)}
-                        ref={provided.innerRef}
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                    >
+        <>
+            {/* TODO refactor */}
+            {index && (
+                <Draggable draggableId={card.id} index={index}>
+                    {(provided) => (
+                        <div
+                            className="card"
+                            onClick={() => setModal(true)}
+                            ref={provided.innerRef}
+                            {...provided.draggableProps}
+                            {...provided.dragHandleProps}
+                        >
+                            <div className="card__labels">
+                                {card.labels.length > 0 &&
+                                    card.labels.map((label) => (
+                                        <div
+                                            className="card__label"
+                                            style={{
+                                                backgroundColor: `var(--color-${label})`,
+                                            }}
+                                            key={label}
+                                        />
+                                    ))}
+                            </div>
+
+                            <p className="card__title">{card.title}</p>
+                        </div>
+                    )}
+                </Draggable>
+            )}
+
+            {/* TODO refactor */}
+            {!index && (
+                <div>
+                    <div className="card" onClick={() => setModal(true)}>
                         <div className="card__labels">
                             {card.labels.length > 0 &&
                                 card.labels.map((label) => (
@@ -43,8 +68,8 @@ export const Card = ({ card, index }: Props) => {
 
                         <p className="card__title">{card.title}</p>
                     </div>
-                )}
-            </Draggable>
+                </div>
+            )}
 
             {modal && (
                 <Modal>
@@ -53,6 +78,6 @@ export const Card = ({ card, index }: Props) => {
                     </ModalCenter>
                 </Modal>
             )}
-        </Fragment>
+        </>
     );
 };

@@ -2,18 +2,55 @@ import React, { useState, useEffect } from 'react';
 
 import './Search.scss';
 
+import { IBoard } from '../../data/types/Board';
+import { ICard } from '../../data/types/Card';
+import { Card } from '../card/Card';
+
 type Props = {
     search: string;
     onChange: (e: React.FormEvent<HTMLInputElement>) => void;
     withModal?: boolean;
+    boards?: IBoard[];
+    cards?: ICard[];
 };
 
-export const Search = ({ search, onChange, withModal }: Props) => {
+export const Search = ({
+    search,
+    onChange,
+    withModal,
+    boards,
+    cards,
+}: Props) => {
     const [showModal, setShowModal] = useState(false);
+    const [searchedBoards, setSearchedBoard] = useState<IBoard[] | undefined>(
+        undefined,
+    );
+    const [searchedCards, setSearchedCard] = useState<ICard[] | undefined>(
+        undefined,
+    );
 
+    // set modal
     useEffect(() => {
         return search.length > 0 ? setShowModal(true) : setShowModal(false);
     }, [search]);
+
+    // search for boards
+    // TODO create generic filter
+    useEffect(() => {
+        const searchBoards = boards?.filter((board) =>
+            board.title.includes(search),
+        );
+        setSearchedBoard(searchBoards);
+    }, [search, boards]);
+
+    // search for cards
+    // TODO create generic filter
+    useEffect(() => {
+        const searchCards = cards?.filter((card) =>
+            card.title.includes(search),
+        );
+        setSearchedCard(searchCards);
+    }, [search, cards]);
 
     return (
         <div className="search">
@@ -32,7 +69,22 @@ export const Search = ({ search, onChange, withModal }: Props) => {
 
             {withModal && showModal && (
                 <div className="search__modal">
-                    <div className="search__modal-body">Test</div>
+                    <div className="search__modal-body">
+                        <>
+                            <h4>Cards</h4>
+                            {searchedCards?.map((card, index) => {
+                                return <Card card={card} key={card.id} />;
+                            })}
+                        </>
+
+                        <>
+                            <h4>Boards</h4>
+                            {searchedBoards?.map((board) => {
+                                return <p key={board.id}>{board.title}</p>;
+                            })}
+                        </>
+                    </div>
+
                     <div className="search__modal-background" />
                 </div>
             )}

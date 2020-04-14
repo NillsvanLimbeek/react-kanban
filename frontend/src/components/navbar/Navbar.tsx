@@ -7,6 +7,7 @@ import {
     useBoardsState,
     useBoardsDispatch,
 } from '../../context/boards/boardsContext';
+import { useCardsState } from '../../context/cards/cardsContext';
 
 import { BoardsMenu } from '../boards-menu/BoardsMenu';
 import { Search } from '../search/Search';
@@ -18,6 +19,9 @@ export const Navbar = () => {
     // boards context
     const { boards } = useBoardsState();
     const boardsDispatch = useBoardsDispatch();
+
+    // cards context
+    const { cards } = useCardsState();
 
     const [search, setSearch] = useState('');
 
@@ -47,6 +51,8 @@ export const Navbar = () => {
                 withModal
                 search={search}
                 onChange={(e) => setSearch(e.currentTarget.value)}
+                boards={boards}
+                cards={cards}
             />
 
             <Link to="/" className="navbar__logo">

@@ -24,8 +24,9 @@ export const BoardCard = ({ board, columns, cards }: Props) => {
         setColumnsLength(boardColumns.length);
 
         // find cards
-        let boardCards = 0;
-        boardColumns.forEach((column) => (boardCards += column.cardIds.length));
+        const boardCards = boardColumns.reduce((total, column) => {
+            return total + column.cardIds.length;
+        }, 0);
 
         setCardsLength(boardCards);
     }, [columns, cards, board]);
