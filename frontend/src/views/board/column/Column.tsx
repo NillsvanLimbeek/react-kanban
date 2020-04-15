@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Draggable, Droppable } from 'react-beautiful-dnd';
 
 import './Column.scss';
 
@@ -19,6 +18,8 @@ import { ICard } from '../../../data/types/Card';
 import { InlineEdit } from '../../../components/inline-edit/InlineEdit';
 import { Card } from '../../../components/card/Card';
 import { Dropdown } from '../../../components/dropdown/Dropdown';
+import { DroppableComponent } from '../../../components/droppable-component/DroppableComponent';
+import { DraggableComponent } from '../../../components/droppable-component/DraggableComponent';
 
 type Props = {
     column: IColumn;
@@ -108,76 +109,51 @@ export const Column = ({ column, cards, index, setNewColumn }: Props) => {
     };
 
     return (
-        <Draggable draggableId={column.id} index={index}>
-            {(provided) => (
-                <div
-                    className="column"
-                    ref={provided.innerRef}
-                    {...provided.draggableProps}
-                >
-                    <div
-                        className="column__header"
-                        {...provided.dragHandleProps}
-                    >
-                        <div className="column__title">
-                            <i className="far fa-circle" />
+        <DraggableComponent id={column.id} index={index}>
+            <div className="column">
+                <div className="column__header">
+                    <div className="column__title">
+                        <i className="far fa-circle" />
 
-                            {column.title.length && !editTitle ? (
-                                <h4 onClick={() => setEditTitle(true)}>
-                                    {column.title}
-                                </h4>
-                            ) : (
-                                <InlineEdit
-                                    value={column.title}
-                                    onBlur={setColumnTitle}
-                                />
-                            )}
-                        </div>
-
-                        <div className="column__dropdown">
-                            <i
-                                className="fas fa-ellipsis-h"
-                                onClick={() => setDropdown(true)}
+                        {column.title.length && !editTitle ? (
+                            <h4 onClick={() => setEditTitle(true)}>
+                                {column.title}
+                            </h4>
+                        ) : (
+                            <InlineEdit
+                                value={column.title}
+                                onBlur={setColumnTitle}
                             />
-
-                            {dropdown && (
-                                <Dropdown
-                                    open={dropdown}
-                                    onClickOutside={() =>
-                                        setDropdown(!dropdown)
-                                    }
-                                >
-                                    Test
-                                </Dropdown>
-                            )}
-                        </div>
+                        )}
                     </div>
 
-                    <Droppable droppableId={column.id} type="card">
-                        {(provided) => (
-                            <div
-                                className="column__card-list"
-                                ref={provided.innerRef}
-                                {...provided.droppableProps}
+                    <div className="column__dropdown">
+                        <i
+                            className="fas fa-ellipsis-h"
+                            onClick={() => setDropdown(true)}
+                        />
+
+                        {dropdown && (
+                            <Dropdown
+                                open={dropdown}
+                                onClickOutside={() => setDropdown(!dropdown)}
                             >
-                                {columnCards?.map((card, index) => (
-                                    <Card
-                                        card={card}
-                                        key={card.id}
-                                        index={index}
-                                    />
-                                ))}
-
-                                {provided.placeholder}
-                            </div>
+                                Test
+                            </Dropdown>
                         )}
-                    </Droppable>
-
-                    <p className="column__add" onClick={addCard}>
-                        Add Card
-                    </p>
+                    </div>
                 </div>
-            )}
-        </Draggable>
+
+                <DroppableComponent id={column.id} type="card">
+                    {columnCards?.map((card, index) => (
+                        <Card card={card} key={card.id} index={index} />
+                    ))}
+                </DroppableComponent>
+
+                <p className="column__add" onClick={addCard}>
+                    Add Card
+                </p>
+            </div>
+        </DraggableComponent>
     );
 };

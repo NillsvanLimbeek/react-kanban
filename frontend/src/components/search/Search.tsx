@@ -73,7 +73,13 @@ export const Search = ({
                         <>
                             <h4>Cards</h4>
                             {searchedCards?.map((card, index) => {
-                                return <Card card={card} key={card.id} />;
+                                return (
+                                    <Card
+                                        card={card}
+                                        key={card.id}
+                                        index={index}
+                                    />
+                                );
                             })}
                         </>
 

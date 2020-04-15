@@ -24,6 +24,7 @@ import { IColumn } from '../../data/types/Column';
 
 import { Column } from './column/Column';
 import { BoardSquare } from '../../components/board-square/BoardSquare';
+import { DroppableComponent } from '../../components/droppable-component/DroppableComponent';
 
 type RouteInfo = {
     id: string;
@@ -172,33 +173,21 @@ export const Board = ({ match }: RouteComponentProps<RouteInfo>) => {
 
                     <DragDropContext onDragEnd={onDragEnd}>
                         <div className="board__columns">
-                            <Droppable
-                                droppableId={board.id}
-                                direction={'horizontal'}
+                            <DroppableComponent
+                                id={board.id}
                                 type="column"
+                                direction="horizontal"
                             >
-                                {(provided) => (
-                                    <div
-                                        className="board__columns"
-                                        ref={provided.innerRef}
-                                        {...provided.droppableProps}
-                                    >
-                                        {boardColumns?.map((column, index) => (
-                                            <Column
-                                                column={column}
-                                                cards={cards}
-                                                key={column.id}
-                                                index={index}
-                                                setNewColumn={(e) =>
-                                                    setNewColumn(e)
-                                                }
-                                            />
-                                        ))}
-
-                                        {provided.placeholder}
-                                    </div>
-                                )}
-                            </Droppable>
+                                {boardColumns?.map((column, index) => (
+                                    <Column
+                                        column={column}
+                                        cards={cards}
+                                        key={column.id}
+                                        index={index}
+                                        setNewColumn={(e) => setNewColumn(e)}
+                                    />
+                                ))}
+                            </DroppableComponent>
 
                             {!newColumn && (
                                 <div className="board__add" onClick={addColumn}>
