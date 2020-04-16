@@ -16,10 +16,10 @@ import { IColumn } from '../../../data/types/Column';
 import { ICard } from '../../../data/types/Card';
 
 import { InlineEdit } from '../../../components/inline-edit/InlineEdit';
-import { Card } from '../../../components/card/Card';
 import { Dropdown } from '../../../components/dropdown/Dropdown';
 import { DroppableComponent } from '../../../components/droppable-component/DroppableComponent';
 import { DraggableComponent } from '../../../components/droppable-component/DraggableComponent';
+import { DraggableCard } from '../../../components/card/DraggableCard';
 
 type Props = {
     column: IColumn;
@@ -146,7 +146,11 @@ export const Column = ({ column, cards, index, setNewColumn }: Props) => {
 
                 <DroppableComponent id={column.id} type="card">
                     {columnCards?.map((card, index) => (
-                        <Card card={card} key={card.id} index={index} />
+                        <DraggableCard
+                            card={card}
+                            key={card.id}
+                            index={index}
+                        />
                     ))}
                 </DroppableComponent>
 

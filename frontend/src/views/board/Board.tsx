@@ -1,6 +1,6 @@
 import React, { useEffect, useState, Fragment } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import { DragDropContext, Droppable, DropResult } from 'react-beautiful-dnd';
+import { DragDropContext, DropResult } from 'react-beautiful-dnd';
 
 import './Board.scss';
 
@@ -19,8 +19,7 @@ import { useCardDrag } from '../../hooks/useCardDrag';
 
 import { generateGuid } from '../../utils/guid';
 
-import { IBoard } from '../../data/types/Board';
-import { IColumn } from '../../data/types/Column';
+import { IBoard, IColumn } from '../../data/types';
 
 import { Column } from './column/Column';
 import { BoardSquare } from '../../components/board-square/BoardSquare';

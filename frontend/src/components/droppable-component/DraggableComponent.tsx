@@ -13,7 +13,7 @@ export const DraggableComponent = ({ id, index, children, type }: Props) => {
         <Draggable draggableId={id} index={index}>
             {(provided) => (
                 <div
-                    className={type === 'card' ? 'card' : ''}
+                    className={type === 'card' ? 'droppable__card' : ''}
                     ref={provided.innerRef}
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
