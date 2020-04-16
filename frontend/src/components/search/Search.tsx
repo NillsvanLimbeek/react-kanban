@@ -72,7 +72,7 @@ export const Search = ({
                     <div className="search__modal-body">
                         <>
                             <h4>Cards</h4>
-                            {searchedCards?.map((card, index) => {
+                            {searchedCards?.map((card) => {
                                 return <Card card={card} key={card.id} />;
                             })}
                         </>
