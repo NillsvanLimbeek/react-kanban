@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import './Column.scss';
 
@@ -19,7 +20,7 @@ import { InlineEdit } from '../../../components/inline-edit/InlineEdit';
 import { Dropdown } from '../../../components/dropdown/Dropdown';
 import { DroppableComponent } from '../../../components/droppable-component/DroppableComponent';
 import { DraggableComponent } from '../../../components/droppable-component/DraggableComponent';
-import { DraggableCard } from '../../../components/card/DraggableCard';
+import { DraggableCard } from '../../../components/column-card/DraggableCard';
 
 type Props = {
     column: IColumn;
@@ -146,11 +147,13 @@ export const Column = ({ column, cards, index, setNewColumn }: Props) => {
 
                 <DroppableComponent id={column.id} type="card">
                     {columnCards?.map((card, index) => (
-                        <DraggableCard
-                            card={card}
-                            key={card.id}
-                            index={index}
-                        />
+                        <Link to={`/card/${card.id}`} id={card.id}>
+                            <DraggableCard
+                                card={card}
+                                key={card.id}
+                                index={index}
+                            />
+                        </Link>
                     ))}
                 </DroppableComponent>
 

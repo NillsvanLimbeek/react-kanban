@@ -1,4 +1,4 @@
-.card-modal {
+.card {
     display: grid;
     grid-template-columns: 3fr 1fr;
     grid-template-rows: 1fr 1fr repeat(2, 2fr);
@@ -14,54 +14,54 @@
     padding: 2.5rem;
 }
 
-.card-modal__icon {
+.card__icon {
     flex: 0 0 3.5rem;
 
     margin-top: 3px;
 }
 
-.card-modal__icon--labels {
+.card__icon--labels {
     margin-top: 4px;
 }
 
 // title
-.card-modal__title {
+.card__title {
     display: flex;
 
     grid-area: title;
 }
 
-.card-modal h3 {
+.card h3 {
     margin: 0 0 5px 0;
 }
 
-.card-modal p {
+.card p {
     margin: 0;
 }
 
 // labels
-.card-modal__labels {
+.card__labels {
     display: flex;
 
     grid-area: labels;
 }
 
 // description
-.card-modal__description {
+.card__description {
     display: flex;
 
     grid-area: description;
 }
 
 // comments
-.card-modal__comments {
+.card__comments {
     display: flex;
 
     grid-area: comments;
 }
 
 // side menu
-.card-modal__side-menu {
+.card__side-menu {
     grid-area: menu;
 
     padding-top: 2.5rem;

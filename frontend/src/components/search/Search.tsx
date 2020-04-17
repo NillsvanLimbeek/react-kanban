@@ -4,7 +4,7 @@ import './Search.scss';
 
 import { IBoard } from '../../data/types/Board';
 import { ICard } from '../../data/types/Card';
-import { Card } from '../card/Card';
+import { ColumnCard } from '../column-card/ColumnCard';
 
 type Props = {
     search: string;
@@ -73,7 +73,7 @@ export const Search = ({
                         <>
                             <h4>Cards</h4>
                             {searchedCards?.map((card) => {
-                                return <Card card={card} key={card.id} />;
+                                return <ColumnCard card={card} key={card.id} />;
                             })}
                         </>
 

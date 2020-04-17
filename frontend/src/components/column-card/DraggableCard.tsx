@@ -3,7 +3,7 @@ import React from 'react';
 import { ICard } from '../../data/types/Card';
 
 import { DraggableComponent } from '../droppable-component/DraggableComponent';
-import { Card } from './Card';
+import { ColumnCard } from './ColumnCard';
 
 type Props = {
     card: ICard;
@@ -13,7 +13,7 @@ type Props = {
 export const DraggableCard = ({ card, index }: Props) => {
     return (
         <DraggableComponent id={card.id} index={index} type="card">
-            <Card card={card} />
+            <ColumnCard card={card} />
         </DraggableComponent>
     );
 };

@@ -7,6 +7,7 @@ import { Navbar } from '../../components/navbar/Navbar';
 
 import { BoardsList } from '../boards-list/BoardsList';
 import { Board } from '../board/Board';
+import { Card } from '../card/Card';
 
 export const Layout = () => {
     return (
@@ -18,6 +19,7 @@ export const Layout = () => {
                     <Switch>
                         <Route path="/" exact component={BoardsList} />
                         <Route path="/board/:id" component={Board} />
+                        <Route path="/card/:id" component={Card} />
                     </Switch>
                 </main>
             </div>
