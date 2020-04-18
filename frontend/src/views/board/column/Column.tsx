@@ -148,7 +148,7 @@ export const Column = ({ column, cards, index, setNewColumn }: Props) => {
                 <DroppableComponent id={column.id} type="card">
                     {columnCards?.map((card, index) => (
                         <Link
-                            to={`/card/${card.id}`}
+                            to={`/board/${column.boardId}/card/${card.id}`}
                             id={card.id}
                             key={card.id}
                         >

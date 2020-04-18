@@ -16,10 +16,11 @@ export const Layout = () => {
                 <Navbar />
 
                 <main>
+                    <Route path="/board/:id/card/:id" component={Card} />
+
                     <Switch>
                         <Route path="/" exact component={BoardsList} />
                         <Route path="/board/:id" component={Board} />
-                        <Route path="/card/:id" component={Card} />
                     </Switch>
                 </main>
             </div>
