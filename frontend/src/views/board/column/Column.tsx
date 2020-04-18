@@ -147,7 +147,11 @@ export const Column = ({ column, cards, index, setNewColumn }: Props) => {
 
                 <DroppableComponent id={column.id} type="card">
                     {columnCards?.map((card, index) => (
-                        <Link to={`/card/${card.id}`} id={card.id}>
+                        <Link
+                            to={`/card/${card.id}`}
+                            id={card.id}
+                            key={card.id}
+                        >
                             <DraggableCard
                                 card={card}
                                 key={card.id}
