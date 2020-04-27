@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Fragment } from 'react';
+import React, { useEffect, useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { DragDropContext, DropResult } from 'react-beautiful-dnd';
 
@@ -25,6 +25,7 @@ import { IColumn } from '../../data/types/Column';
 import { Column } from './column/Column';
 import { BoardSquare } from '../../components/board-square/BoardSquare';
 import { DroppableComponent } from '../../components/droppable-component/DroppableComponent';
+import { AddColumn } from '../../components/add-column/AddColumn';
 
 type RouteInfo = {
     id: string;
@@ -49,7 +50,7 @@ export const Board = ({ match }: RouteComponentProps<RouteInfo>) => {
     // state
     const [board, setBoard] = useState<IBoard | null>(null);
     const [boardColumns, setBoardColumns] = useState<IColumn[] | null>(null);
-    const [newColumn, setNewColumn] = useState(false);
+    const [newColumn, setNewColumn] = useState<IColumn | null>(null);
 
     useEffect(() => {
         // find board
@@ -82,21 +83,34 @@ export const Board = ({ match }: RouteComponentProps<RouteInfo>) => {
 
     const addColumn = () => {
         if (board) {
-            const id = generateGuid();
-
             const column = {
                 title: '',
-                id,
+                id: generateGuid(),
                 boardId: board.id,
                 cardIds: [],
             };
 
-            const newBoard = { ...board, columnIds: [...board.columnIds, id] };
-
-            columnsDispatch({ type: 'ADD_COLUMN', payload: column });
-            boardsDispatch({ type: 'UPDATE_BOARD', payload: newBoard });
-            setNewColumn(true);
+            setNewColumn(column);
         }
+    };
+
+    const setColumnTitle = (title: string) => {
+        // update title
+        if (title.length && newColumn && board) {
+            columnsDispatch({
+                type: 'ADD_COLUMN',
+                payload: { ...newColumn, title },
+            });
+            boardsDispatch({
+                type: 'UPDATE_BOARD',
+                payload: {
+                    ...board,
+                    columnIds: [...board.columnIds, newColumn.id],
+                },
+            });
+        }
+
+        setNewColumn(null);
     };
 
     const onDragEnd = (result: DropResult) => {
@@ -157,7 +171,7 @@ export const Board = ({ match }: RouteComponentProps<RouteInfo>) => {
     return (
         <div className="board">
             {board && (
-                <Fragment>
+                <>
                     <div className="board__header">
                         <BoardSquare
                             color={board.color}
@@ -184,19 +198,20 @@ export const Board = ({ match }: RouteComponentProps<RouteInfo>) => {
                                         cards={cards}
                                         key={column.id}
                                         index={index}
-                                        setNewColumn={(e) => setNewColumn(e)}
                                     />
                                 ))}
                             </DroppableComponent>
 
-                            {!newColumn && (
+                            {!newColumn ? (
                                 <div className="board__add" onClick={addColumn}>
                                     Add Column
                                 </div>
+                            ) : (
+                                <AddColumn setColumnTitle={setColumnTitle} />
                             )}
                         </div>
                     </DragDropContext>
-                </Fragment>
+                </>
             )}
         </div>
     );

@@ -21,15 +21,15 @@ import { Dropdown } from '../../../components/dropdown/Dropdown';
 import { DroppableComponent } from '../../../components/droppable-component/DroppableComponent';
 import { DraggableComponent } from '../../../components/droppable-component/DraggableComponent';
 import { DraggableCard } from '../../../components/column-card/DraggableCard';
+import { AddCard } from '../../../components/add-card/AddCard';
 
 type Props = {
     column: IColumn;
     cards: ICard[];
     index: number;
-    setNewColumn: (e: boolean) => void;
 };
 
-export const Column = ({ column, cards, index, setNewColumn }: Props) => {
+export const Column = ({ column, cards, index }: Props) => {
     // context
     const { boards } = useBoardsState();
     const boardsDispatch = useBoardsDispatch();
@@ -40,6 +40,7 @@ export const Column = ({ column, cards, index, setNewColumn }: Props) => {
     const [columnCards, setColumnCards] = useState<ICard[] | null>(null);
     const [editTitle, setEditTitle] = useState(false);
     const [dropdown, setDropdown] = useState(false);
+    const [newCard, setNewCard] = useState<ICard | null>(null);
 
     // find cards
     useEffect(() => {
@@ -58,10 +59,6 @@ export const Column = ({ column, cards, index, setNewColumn }: Props) => {
 
     const addCard = () => {
         const cardId = generateGuid();
-        const updatedColumn: IColumn = {
-            ...column,
-            cardIds: [...column.cardIds, cardId],
-        };
         const card: ICard = {
             title: 'Card',
             id: cardId,
@@ -69,8 +66,7 @@ export const Column = ({ column, cards, index, setNewColumn }: Props) => {
             labels: [],
         };
 
-        cardsDispatch({ type: 'ADD_CARD', payload: card });
-        columnsDispatch({ type: 'UPDATE_COLUMN', payload: updatedColumn });
+        setNewCard(card);
     };
 
     const setColumnTitle = (title: string) => {
@@ -90,7 +86,6 @@ export const Column = ({ column, cards, index, setNewColumn }: Props) => {
             });
 
             setEditTitle(false);
-            setNewColumn(false);
             return;
         }
 
@@ -105,8 +100,26 @@ export const Column = ({ column, cards, index, setNewColumn }: Props) => {
 
             boardsDispatch({ type: 'UPDATE_BOARD', payload: newBoard });
             columnsDispatch({ type: 'DELETE_COLUMN', payload: column.id });
-            setNewColumn(false);
         }
+    };
+
+    const setCardTitle = (title: string) => {
+        // update title
+        if (title.length && newCard) {
+            cardsDispatch({
+                type: 'ADD_CARD',
+                payload: { ...newCard, title },
+            });
+            columnsDispatch({
+                type: 'UPDATE_COLUMN',
+                payload: {
+                    ...column,
+                    cardIds: [...column.cardIds, newCard.id],
+                },
+            });
+        }
+
+        setNewCard(null);
     };
 
     return (
@@ -161,9 +174,13 @@ export const Column = ({ column, cards, index, setNewColumn }: Props) => {
                     ))}
                 </DroppableComponent>
 
-                <p className="column__add" onClick={addCard}>
-                    Add Card
-                </p>
+                {!newCard ? (
+                    <p className="column__add" onClick={addCard}>
+                        Add Card
+                    </p>
+                ) : (
+                    <AddCard setTitle={setCardTitle} />
+                )}
             </div>
         </DraggableComponent>
     );
