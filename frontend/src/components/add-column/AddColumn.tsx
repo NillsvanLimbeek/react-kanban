@@ -2,14 +2,20 @@ import React from 'react';
 
 import { InlineEdit } from '../inline-edit/InlineEdit';
 
+import './AddColumn.scss';
+
 type Props = {
     setColumnTitle: (e: string) => void;
 };
 
 export const AddColumn = ({ setColumnTitle }: Props) => {
     return (
-        <div>
-            <InlineEdit value="" onBlur={setColumnTitle} />
+        <div className="add-column">
+            <InlineEdit
+                value=""
+                onBlur={setColumnTitle}
+                placeholder="Give this column a name..."
+            />
         </div>
     );
 };

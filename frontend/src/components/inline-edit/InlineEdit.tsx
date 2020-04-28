@@ -5,9 +5,10 @@ import './InlineEdit.scss';
 type Props = {
     value: string;
     onBlur: (e: string) => void;
+    placeholder?: string;
 };
 
-export const InlineEdit = ({ value, onBlur }: Props) => {
+export const InlineEdit = ({ value, onBlur, placeholder }: Props) => {
     const [localValue, setLocalValue] = useState(value);
     const input = useRef<HTMLInputElement>(null);
 
@@ -31,6 +32,7 @@ export const InlineEdit = ({ value, onBlur }: Props) => {
             ref={input}
             className="inline-edit"
             type="text"
+            placeholder={placeholder}
             value={localValue}
             onChange={(e) => setLocalValue(e.currentTarget.value)}
             onBlur={() => onBlur(localValue)}

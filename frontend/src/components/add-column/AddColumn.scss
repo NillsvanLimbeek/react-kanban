@@ -1,2 +1,12 @@
 .add-column {
+    align-self: flex-start;
+
+    padding: 2rem 1.5rem;
+    background-color: var(--color-white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.add-column input {
+    width: 89%;
 }

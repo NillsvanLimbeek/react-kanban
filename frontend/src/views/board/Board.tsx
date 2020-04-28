@@ -202,13 +202,14 @@ export const Board = ({ match }: RouteComponentProps<RouteInfo>) => {
                                 ))}
                             </DroppableComponent>
 
-                            {!newColumn ? (
+                            {/* {!newColumn ? (
                                 <div className="board__add" onClick={addColumn}>
                                     Add Column
                                 </div>
                             ) : (
                                 <AddColumn setColumnTitle={setColumnTitle} />
-                            )}
+                            )} */}
+                            <AddColumn setColumnTitle={setColumnTitle} />
                         </div>
                     </DragDropContext>
                 </>
