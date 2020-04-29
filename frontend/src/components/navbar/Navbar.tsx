@@ -6,8 +6,8 @@ import './Navbar.scss';
 import {
     useBoardsState,
     useBoardsDispatch,
-} from '../../context/boards/boardsContext';
-import { useCardsState } from '../../context/cards/cardsContext';
+    useCardsState,
+} from '../../context';
 
 import { BoardsMenu } from '../boards-menu/BoardsMenu';
 import { Search } from '../search/Search';

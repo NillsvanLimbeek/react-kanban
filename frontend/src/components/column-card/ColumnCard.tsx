@@ -2,7 +2,7 @@ import React from 'react';
 
 import './ColumnCard.scss';
 
-import { ICard } from '../../data/types/Card';
+import { ICard } from '../../data';
 
 type Props = {
     card: ICard;

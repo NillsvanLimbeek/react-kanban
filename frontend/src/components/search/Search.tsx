@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 import './Search.scss';
 
-import { IBoard } from '../../data/types/Board';
-import { ICard } from '../../data/types/Card';
+import { IBoard, ICard } from '../../data/';
+
 import { ColumnCard } from '../column-card/ColumnCard';
 
 type Props = {

@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { InlineEdit } from '../inline-edit/InlineEdit';
-
 import './AddColumn.scss';
+
+import { InlineEdit } from '../inline-edit/InlineEdit';
 
 type Props = {
     setColumnTitle: (e: string) => void;

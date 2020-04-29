@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ICard } from '../../data/types/Card';
+import { ICard } from '../../data';
 
 import { DraggableComponent } from '../droppable-component/DraggableComponent';
 import { ColumnCard } from './ColumnCard';

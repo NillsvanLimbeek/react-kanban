@@ -7,20 +7,17 @@ import './Board.scss';
 import {
     useBoardsState,
     useBoardsDispatch,
-} from '../../context/boards/boardsContext';
-import {
     useColumnsState,
     useColumnsDispatch,
-} from '../../context/columns/columnsContext';
-import { useCardsState } from '../../context/cards/cardsContext';
+    useCardsState,
+} from '../../context';
 
 import { useColumnDrag } from '../../hooks/useColumnDrag';
 import { useCardDrag } from '../../hooks/useCardDrag';
 
 import { generateGuid } from '../../utils/guid';
 
-import { IBoard } from '../../data/types/Board';
-import { IColumn } from '../../data/types/Column';
+import { IBoard, IColumn } from '../../data';
 
 import { Column } from './column/Column';
 import { BoardSquare } from '../../components/board-square/BoardSquare';

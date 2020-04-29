@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import './BoardCard.scss';
 
-import { IBoard } from '../../data/types/Board';
-import { IColumn } from '../../data/types/Column';
-import { ICard } from '../../data/types/Card';
+import { IBoard, IColumn, ICard } from '../../data';
 
 type Props = {
     board: IBoard;

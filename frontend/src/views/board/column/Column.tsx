@@ -6,15 +6,13 @@ import './Column.scss';
 import {
     useBoardsState,
     useBoardsDispatch,
-} from '../../../context/boards/boardsContext';
-import { useColumnsDispatch } from '../../../context/columns/columnsContext';
-import { useCardsDispatch } from '../../../context/cards/cardsContext';
+    useColumnsDispatch,
+    useCardsDispatch,
+} from '../../../context';
 
 import { generateGuid } from '../../../utils/guid';
 
-import { IBoard } from '../../../data/types/Board';
-import { IColumn } from '../../../data/types/Column';
-import { ICard } from '../../../data/types/Card';
+import { IBoard, IColumn, ICard } from '../../../data';
 
 import { InlineEdit } from '../../../components/inline-edit/InlineEdit';
 import { Dropdown } from '../../../components/dropdown/Dropdown';

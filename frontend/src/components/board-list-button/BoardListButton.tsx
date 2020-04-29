@@ -2,7 +2,7 @@ import React from 'react';
 
 import './BoardListButton.scss';
 
-import { IBoard } from '../../data/types/Board';
+import { IBoard } from '../../data';
 
 type Props = {
     board: IBoard;

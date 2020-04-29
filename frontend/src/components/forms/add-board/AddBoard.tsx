@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 
 import './AddBoard.scss';
 
-import { useBoardsDispatch } from '../../../context/boards/boardsContext';
+import { useBoardsDispatch } from '../../../context';
 
 import { generateGuid } from '../../../utils/guid';
-import { IBoard } from '../../../data/types/Board';
+import { IBoard } from '../../../data';
 
 import { BaseInput } from '../../base-input/BaseInput';
 

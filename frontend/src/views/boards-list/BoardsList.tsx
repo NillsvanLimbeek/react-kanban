@@ -3,11 +3,9 @@ import { Link, useHistory } from 'react-router-dom';
 
 import './BoardsList.scss';
 
-import { useBoardsState } from '../../context/boards/boardsContext';
-import { useColumnsState } from '../../context/columns/columnsContext';
-import { useCardsState } from '../../context/cards/cardsContext';
+import { useBoardsState, useColumnsState, useCardsState } from '../../context';
 
-import { IBoard } from '../../data/types/Board';
+import { IBoard } from '../../data';
 
 import { BoardCard } from '../../components/board-card/BoardCard';
 import { Modal } from '../../components/modal/Modal';
