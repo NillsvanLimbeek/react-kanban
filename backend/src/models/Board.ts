@@ -8,19 +8,32 @@ interface Board extends Document {
     // user: string;
 }
 
-const BoardSchema = new Schema<Board>({
-    title: {
-        type: String,
-        required: [true, 'Please add a title'],
-        unique: true,
-        trim: true,
+const BoardSchema = new Schema<Board>(
+    {
+        title: {
+            type: String,
+            required: [true, 'Please add a title'],
+            unique: true,
+            trim: true,
+        },
+        color: {
+            type: String,
+            required: [true, 'please add a color'],
+        },
+        favorite: Boolean,
     },
-    color: {
-        type: String,
-        required: [true, 'please add a color'],
+    {
+        toJSON: { virtuals: true },
+        toObject: { virtuals: true },
     },
-    favorite: Boolean,
-    columnIds: [String],
+);
+
+// populate
+BoardSchema.virtual('columns', {
+    ref: 'Column',
+    localField: '_id',
+    foreignField: 'board',
+    justOne: false,
 });
 
-export default model('Board', BoardSchema);
+export default model<Board>('Board', BoardSchema);
