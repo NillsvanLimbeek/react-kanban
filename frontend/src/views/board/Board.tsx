@@ -21,7 +21,7 @@ import { IBoard, IColumn } from '../../data';
 
 import { Column } from './column/Column';
 import { BoardSquare } from '../../components/board-square/BoardSquare';
-import { DroppableComponent } from '../../components/droppable-component/DroppableComponent';
+import { DroppableComponent } from '../../components/drag-drop-components';
 import { AddColumn } from '../../components/add-column/AddColumn';
 
 type RouteInfo = {

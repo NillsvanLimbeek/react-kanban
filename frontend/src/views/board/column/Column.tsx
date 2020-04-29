@@ -16,8 +16,10 @@ import { IBoard, IColumn, ICard } from '../../../data';
 
 import { InlineEdit } from '../../../components/inline-edit/InlineEdit';
 import { Dropdown } from '../../../components/dropdown/Dropdown';
-import { DroppableComponent } from '../../../components/droppable-component/DroppableComponent';
-import { DraggableComponent } from '../../../components/droppable-component/DraggableComponent';
+import {
+    DraggableComponent,
+    DroppableComponent,
+} from '../../../components/drag-drop-components';
 import { DraggableCard } from '../../../components/column-card/DraggableCard';
 import { AddCard } from '../../../components/add-card/AddCard';
 

@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { Droppable } from 'react-beautiful-dnd';
 
-import './Droppable.scss';
+import './DragDrop.scss';
 
 type Props = {
     id: string;
