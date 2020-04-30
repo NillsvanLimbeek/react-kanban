@@ -23,12 +23,11 @@ export function errorHandler(
     if (err.name === 'ValidationError') error = handleValidationError(error);
 
     res.status(err.statusCode || 500).json({
-        succes: false,
+        success: false,
         msg: error.message || 'Server Error',
     });
 }
 
-// TODO move to files
 function handleCastError(error: CastError) {
     const message = `Board not found with an id of ${error.value}`;
     return new ErrorResponse(message, 404);
@@ -42,8 +41,6 @@ function handleDuplicateError(error: any) {
 }
 
 function handleValidationError(error: any) {
-    console.log(error);
-
     const errors = Object.values(error.errors).map((el) => el.message);
 
     const message = `Invalid input data. ${errors.join('. ')}`;

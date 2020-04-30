@@ -4,7 +4,7 @@ import { ErrorResponse } from './../utils/errorResponse';
 import Board from '../models/Board';
 
 async function getBoards(req: Request, res: Response) {
-    const boards = await Board.find();
+    const boards = await Board.find().populate('columns');
 
     res.json({ succes: true, count: boards.length, data: boards });
 }
