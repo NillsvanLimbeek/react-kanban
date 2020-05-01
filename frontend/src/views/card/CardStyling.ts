@@ -1,4 +1,6 @@
-.card__background {
+import styled from 'styled-components';
+
+export const Background = styled.div`
     position: fixed;
     top: 0;
     left: 0;
@@ -9,9 +11,9 @@
 
     background: rgba(0, 0, 0, 0.25);
     cursor: auto;
-}
+`;
 
-.card__body {
+export const Body = styled.div`
     position: absolute;
     left: 50%;
     top: 25%;
@@ -35,57 +37,49 @@
     box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
     border-radius: var(--border-radius);
     cursor: auto;
-}
+`;
 
-.card__icon {
-    flex: 0 0 3.5rem;
-
-    margin-top: 3px;
-}
-
-.card__icon--labels {
-    margin-top: 4px;
-}
-
-// title
-.card__title {
+// grid areas
+export const Title = styled.div`
     display: flex;
 
     grid-area: title;
-}
+`;
 
-.card h3 {
-    margin: 0 0 5px 0;
-}
-
-.card p {
-    margin: 0;
-}
-
-// labels
-.card__labels {
+export const Labels = styled.div`
     display: flex;
 
     grid-area: labels;
-}
+`;
 
-// description
-.card__description {
+export const Description = styled.div`
     display: flex;
 
     grid-area: description;
-}
+`;
 
-// comments
-.card__comments {
+export const Comments = styled.div`
     display: flex;
 
     grid-area: comments;
-}
+`;
 
-// side menu
-.card__side-menu {
+export const SideMenu = styled.div`
     grid-area: menu;
-
     padding-top: 2.5rem;
-}
+`;
+
+// elements
+export const Icon = styled.i`
+    flex: 0 0 3.5rem;
+
+    margin-top: 3px;
+`;
+
+export const H3 = styled.h3`
+    margin: 0 0 5px 0;
+`;
+
+export const P = styled.p`
+    margin: 0;
+`;

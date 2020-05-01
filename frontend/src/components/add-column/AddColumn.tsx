@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useClickOutside } from '../../hooks/useClickOutside';
 
 import './AddColumn.scss';
 
@@ -9,6 +10,9 @@ type Props = {
 export const AddColumn = ({ setColumnTitle }: Props) => {
     const [value, setValue] = useState('');
     const input = useRef<HTMLInputElement>(null);
+    const element = useRef<HTMLDivElement>(null);
+
+    useClickOutside(element, () => setColumnTitle(''));
 
     useEffect(() => {
         input.current?.focus();
@@ -33,7 +37,7 @@ export const AddColumn = ({ setColumnTitle }: Props) => {
     };
 
     return (
-        <div className="add-column">
+        <div className="add-column" ref={element}>
             <input
                 ref={input}
                 type="text"

@@ -1,16 +1,18 @@
-.labels {
-    display: flex;
-}
+import styled from 'styled-components';
 
-.labels__label {
+export const Wrapper = styled.div`
+    display: flex;
+`;
+
+export const Label = styled.div`
     width: 3.5rem;
     height: 3.5rem;
 
     border-radius: var(--border-radius);
     margin-right: 7.5px;
-}
+`;
 
-.labels__add {
+export const Icon = styled.i`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,4 +24,4 @@
     border-radius: var(--border-radius);
     color: lightgrey;
     cursor: pointer;
-}
+`;

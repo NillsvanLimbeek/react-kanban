@@ -1,6 +1,7 @@
 import React from 'react';
 
-import './Menu.scss';
+import { H4, Btn, BtnIcon, BtnP } from './MenuStyling';
+import { MenuButton } from '../../../components/menu-button/MenuButton';
 
 // TODO move?
 const addActions = [
@@ -23,22 +24,22 @@ const cardActions = [
 
 export const Menu = () => {
     return (
-        <div className="menu">
-            <h4>Add to Card</h4>
+        <>
+            <H4>Add to Card</H4>
             {addActions.map((action, index) => (
-                <div className="menu__button" key={index}>
-                    <i className={action.icon}></i>
-                    <p>{action.title}</p>
-                </div>
+                <Btn key={index}>
+                    <BtnIcon className={action.icon} />
+                    <BtnP>{action.title}</BtnP>
+                </Btn>
             ))}
 
-            <h4>Actions</h4>
+            <H4>Actions</H4>
             {cardActions.map((action, index) => (
-                <div className="menu__button" key={index}>
-                    <i className={action.icon}></i>
-                    <p>{action.title}</p>
-                </div>
+                <Btn key={index}>
+                    <BtnIcon className={action.icon} />
+                    <BtnP>{action.title}</BtnP>
+                </Btn>
             ))}
-        </div>
+        </>
     );
 };
