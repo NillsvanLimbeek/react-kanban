@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import './Layout.scss';
+import { Wrapper } from './style';
 
 import { Navbar } from '../../components/navbar/Navbar';
 
@@ -12,7 +12,7 @@ import { Card } from '../card/Card';
 export const Layout = () => {
     return (
         <Router>
-            <div className="layout">
+            <Wrapper>
                 <Navbar />
 
                 <main>
@@ -23,7 +23,7 @@ export const Layout = () => {
                         <Route path="/board/:id" component={Board} />
                     </Switch>
                 </main>
-            </div>
+            </Wrapper>
         </Router>
     );
 };

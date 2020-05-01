@@ -7,7 +7,7 @@ import { BoardsProvider } from './context/boards/boardsContext';
 import { ColumnsProvider } from './context/columns/columnsContext';
 import { CardsProvider } from './context/cards/cardsContext';
 
-import { Layout } from './views//layout/Layout';
+import { Layout } from './views/layout/Layout';
 
 function App() {
     return (
