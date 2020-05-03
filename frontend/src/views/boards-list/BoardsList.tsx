@@ -1,7 +1,7 @@
-import React, { useEffect, useState, Fragment } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
-import './BoardsList.scss';
+import { List, Add } from './BoardsListStyling';
 
 import { useBoardsState } from '../../context/boards/boardsContext';
 import { useColumnsState } from '../../context/columns/columnsContext';
@@ -39,28 +39,30 @@ export const BoardsList = () => {
     return (
         <div className="boards-list">
             {favorite && (
-                <Fragment>
+                <>
                     <h3>Favorite Boards</h3>
 
-                    <div className="boards-list__list">
+                    <List>
                         {boards.map((board) =>
                             board.favorite ? (
-                                <BoardCard
-                                    board={board}
-                                    columns={columns}
-                                    cards={cards}
-                                    key={board.id}
-                                />
+                                <Link to={`/board/${board.id}`} key={board.id}>
+                                    <BoardCard
+                                        board={board}
+                                        columns={columns}
+                                        cards={cards}
+                                        key={board.id}
+                                    />
+                                </Link>
                             ) : null,
                         )}
-                    </div>
-                </Fragment>
+                    </List>
+                </>
             )}
 
-            <Fragment>
+            <>
                 <h3>Personal Boards</h3>
 
-                <div className="boards-list__list">
+                <List>
                     {boards.map((board) => (
                         <Link to={`/board/${board.id}`} key={board.id}>
                             <BoardCard
@@ -72,14 +74,9 @@ export const BoardsList = () => {
                         </Link>
                     ))}
 
-                    <div
-                        className="boards-list__add"
-                        onClick={() => setModal(true)}
-                    >
-                        <p>Add Board</p>
-                    </div>
-                </div>
-            </Fragment>
+                    <Add onClick={() => setModal(true)}>Add Board</Add>
+                </List>
+            </>
 
             {modal && (
                 <Modal>

@@ -1,4 +1,6 @@
-.boards-list__list {
+import styled from 'styled-components';
+
+export const List = styled.div`
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 2rem;
@@ -6,14 +8,10 @@
     &:not(:last-child) {
         margin-bottom: 5rem;
     }
-}
+`;
 
-.boards-list__add {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    height: 5rem;
+export const Add = styled.button`
+    height: 6.25rem;
 
     padding: 1rem;
     border: 1px solid var(--color-grey);
@@ -25,4 +23,4 @@
         color: var(--color-black);
         background-color: white;
     }
-}
+`;

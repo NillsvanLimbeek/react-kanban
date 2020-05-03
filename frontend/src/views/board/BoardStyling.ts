@@ -1,30 +1,32 @@
-.board {
+import styled from 'styled-components';
+
+export const Wrapper = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: column;
-}
+`;
 
-.board__header {
+export const Header = styled.div`
     display: flex;
 
     margin-bottom: 2.5rem;
-}
+`;
 
-.board__info h3 {
+export const H3 = styled.h3`
     margin: 0 0 5px 0;
     font-weight: 500;
-}
+`;
 
-.board__info p {
+export const P = styled.p`
     margin: 0;
     font-size: 1.25rem;
-}
+`;
 
-.board__columns {
+export const Columns = styled.div`
     display: flex;
-}
+`;
 
-.board__add {
+export const Add = styled.button`
     align-self: flex-start;
 
     width: 20rem;
@@ -32,6 +34,7 @@
     padding: 2rem 1.5rem;
     text-align: center;
     background: var(--color-white);
+    border: none;
     border-radius: var(--border-radius);
     box-shadow: 3px 3px 3px 1px rgba(128, 128, 128, 0.25);
     color: var(--color-grey-dark);
@@ -40,4 +43,4 @@
     &:hover {
         color: var(--color-black);
     }
-}
+`;

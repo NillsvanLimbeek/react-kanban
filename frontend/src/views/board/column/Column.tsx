@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import './Column.scss';
+import { Wrapper, Header, Icon } from './ColumnStyling';
 
 import {
     useBoardsState,
@@ -127,7 +127,7 @@ export const Column = ({ column, cards, index }: Props) => {
             <div className="column">
                 <div className="column__header">
                     <div className="column__title">
-                        <i className="far fa-circle" />
+                        <Icon className="far fa-circle" />
 
                         {column.title.length && !editTitle ? (
                             <h4 onClick={() => setEditTitle(true)}>
@@ -142,7 +142,7 @@ export const Column = ({ column, cards, index }: Props) => {
                     </div>
 
                     <div className="column__dropdown">
-                        <i
+                        <Icon
                             className="fas fa-ellipsis-h"
                             onClick={() => setDropdown(true)}
                         />
