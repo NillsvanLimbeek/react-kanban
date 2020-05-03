@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 
-import './AddCard.scss';
+import { TextArea } from './AddCardStyling';
 
 type Props = {
     setTitle: (e: string) => void;
@@ -36,13 +36,12 @@ export const AddCard = ({ setTitle }: Props) => {
     };
 
     return (
-        <textarea
+        <TextArea
             ref={textArea}
-            className="add-card"
             name="textarea"
             placeholder="Give this card a name..."
             onBlur={submitOnBlur}
             onKeyDown={submitOnEnter}
-        ></textarea>
+        ></TextArea>
     );
 };

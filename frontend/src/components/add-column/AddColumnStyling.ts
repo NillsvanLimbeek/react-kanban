@@ -1,39 +1,45 @@
-.add-column {
+import styled from 'styled-components';
+
+export const Wrapper = styled.div`
     align-self: flex-start;
 
     padding: 2rem 1.5rem;
     background-color: var(--color-white);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-}
+`;
 
-.add-column input {
-    width: 89%;
-}
+export const Input = styled.input`
+    /* width: 89%; */
+`;
 
-.add-column__add {
+export const Add = styled.button`
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    width: 98%;
-}
+    width: 100%;
 
-.add-column__add p {
+    background: transparent;
+    border: none;
+    margin: 2rem 0 1rem 0;
+`;
+
+export const P = styled.p`
     color: var(--color-grey-dark);
-    margin-top: 2.5rem;
+    margin: 0;
     cursor: pointer;
 
     &:hover {
         color: var(--color-black);
     }
-}
+`;
 
-.add-column__times {
+export const Icon = styled.i`
     color: var(--color-grey-dark);
     cursor: pointer;
 
     &:hover {
         color: var(--color-black);
     }
-}
+`;

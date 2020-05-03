@@ -1,4 +1,6 @@
-.add-card {
+import styled from 'styled-components';
+
+export const TextArea = styled.textarea`
     height: 5rem;
 
     border-radius: var(--border-radius);
@@ -10,4 +12,4 @@
         outline: none;
         border-color: var(--color-grey);
     }
-}
+`;
