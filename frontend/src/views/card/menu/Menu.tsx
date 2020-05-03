@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { H4, Btn, BtnIcon, BtnP } from './MenuStyling';
-import { MenuButton } from '../../../components/menu-button/MenuButton';
 
 // TODO move?
 const addActions = [

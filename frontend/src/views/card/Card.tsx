@@ -14,11 +14,9 @@ import {
     SideMenu,
 } from './CardStyling';
 
-import { useCardsState } from '../../context/cards/cardsContext';
-import { useColumnsState } from '../../context/columns/columnsContext';
+import { useColumnsState, useCardsState } from '../../context';
 
-import { ICard } from '../../data/types/Card';
-import { IColumn } from '../../data/types/Column';
+import { IColumn, ICard } from '../../data';
 
 import { InlineEdit } from '../../components/inline-edit/InlineEdit';
 import { Labels as LabelsComponent } from './labels/Labels';

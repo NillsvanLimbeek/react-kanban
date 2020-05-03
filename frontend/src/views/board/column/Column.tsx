@@ -1,20 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { Wrapper, Header, Icon } from './ColumnStyling';
+import {
+    Wrapper,
+    Header,
+    Icon,
+    Title,
+    TitleH4,
+    ColumnDropdown,
+    Add,
+} from './ColumnStyling';
 
 import {
     useBoardsState,
     useBoardsDispatch,
-} from '../../../context/boards/boardsContext';
-import { useColumnsDispatch } from '../../../context/columns/columnsContext';
-import { useCardsDispatch } from '../../../context/cards/cardsContext';
+    useColumnsDispatch,
+    useCardsDispatch,
+} from '../../../context';
 
-import { generateGuid } from '../../../utils/guid';
+import { generateGuid } from '../../../utils';
 
-import { IBoard } from '../../../data/types/Board';
-import { IColumn } from '../../../data/types/Column';
-import { ICard } from '../../../data/types/Card';
+import { IBoard, IColumn, ICard } from '../../../data';
 
 import { InlineEdit } from '../../../components/inline-edit/InlineEdit';
 import { Dropdown } from '../../../components/dropdown/Dropdown';
@@ -124,24 +130,24 @@ export const Column = ({ column, cards, index }: Props) => {
 
     return (
         <DraggableComponent id={column.id} index={index}>
-            <div className="column">
-                <div className="column__header">
-                    <div className="column__title">
+            <Wrapper>
+                <Header>
+                    <Title>
                         <Icon className="far fa-circle" />
 
                         {column.title.length && !editTitle ? (
-                            <h4 onClick={() => setEditTitle(true)}>
+                            <TitleH4 onClick={() => setEditTitle(true)}>
                                 {column.title}
-                            </h4>
+                            </TitleH4>
                         ) : (
                             <InlineEdit
                                 value={column.title}
                                 onBlur={setColumnTitle}
                             />
                         )}
-                    </div>
+                    </Title>
 
-                    <div className="column__dropdown">
+                    <ColumnDropdown>
                         <Icon
                             className="fas fa-ellipsis-h"
                             onClick={() => setDropdown(true)}
@@ -155,8 +161,8 @@ export const Column = ({ column, cards, index }: Props) => {
                                 Test
                             </Dropdown>
                         )}
-                    </div>
-                </div>
+                    </ColumnDropdown>
+                </Header>
 
                 <DroppableComponent id={column.id} type="card">
                     {columnCards?.map((card, index) => (
@@ -175,13 +181,11 @@ export const Column = ({ column, cards, index }: Props) => {
                 </DroppableComponent>
 
                 {!newCard ? (
-                    <p className="column__add" onClick={addCard}>
-                        Add Card
-                    </p>
+                    <Add onClick={addCard}>Add Card</Add>
                 ) : (
                     <AddCard setTitle={setCardTitle} />
                 )}
-            </div>
+            </Wrapper>
         </DraggableComponent>
     );
 };

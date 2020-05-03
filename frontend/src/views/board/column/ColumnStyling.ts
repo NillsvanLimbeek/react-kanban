@@ -42,40 +42,39 @@ export const Icon = styled.i`
     }
 `;
 
-// .column__header h4 {
-//     margin: 0;
-//     font-weight: 600;
-// }
+export const Title = styled.div`
+    display: flex;
+    align-items: center;
 
-// .column__title {
-//     display: flex;
-//     align-items: center;
+    width: 100%;
+`;
 
-//     width: 100%;
-// }
+export const TitleH4 = styled.h4`
+    width: 100%;
 
-// .column__title h4 {
-//     width: 100%;
+    padding: 5px 1rem;
+    margin: 0;
+    border: 0.25px solid transparent;
+    cursor: pointer;
+`;
 
-//     padding: 5px 1rem;
-//     border: 0.25px solid transparent;
-//     cursor: pointer;
-// }
+export const ColumnDropdown = styled.div`
+    position: relative;
+`;
 
-// .column__dropdown {
-//     position: relative;
-// }
+export const Add = styled.button`
+    border: none;
+    background: transparent;
 
-// .column__card-list {
-//     background-color: #f3f3f3;
-// }
+    text-align: center;
+    color: var(--color-grey-dark);
+    cursor: pointer;
 
-// .column__add {
-//     text-align: center;
-//     color: var(--color-grey-dark);
-//     cursor: pointer;
+    &:hover {
+        color: var(--color-black);
+    }
 
-//     &:hover {
-//         color: var(--color-black);
-//     }
-// }
+    &:focus {
+        outline: none;
+    }
+`;
