@@ -1,6 +1,13 @@
 import React from 'react';
 
-import './BoardListButton.scss';
+import {
+    Wrapper,
+    Main,
+    Square,
+    Title,
+    Trash,
+    Star,
+} from './BoardListButtonStyling';
 
 import { IBoard } from '../../data/types/Board';
 
@@ -18,30 +25,26 @@ export const BoardListButton = ({
     favoriteBoard,
 }: Props) => {
     return (
-        <div className="board-list-button">
-            <div
-                className="board-list-button__main"
-                onClick={() => redirectTo(board.id)}
-            >
-                <i
-                    className="board-list-button__square fas fa-square"
+        <Wrapper>
+            <Main onClick={() => redirectTo(board.id)}>
+                <Square
+                    className="fas fa-square"
                     style={{ color: `${board.color}` }}
                 />
-                <p className="board-list-button__title">{board.title}</p>
-            </div>
+                <Title>{board.title}</Title>
+            </Main>
 
             <div className="board-list-button__actions">
-                <i
-                    className="board-list-button__trash fas fa-trash"
+                <Trash
+                    className="fas fa-trash"
                     onClick={() => removeBoard(board.id)}
                 />
-                <i
-                    className={`board-list-button__star fas fa-star ${
-                        board.favorite ? 'board-list-button__star--active' : ''
-                    }`}
+                <Star
+                    className="fas fa-star"
+                    favorite={board.favorite}
                     onClick={() => favoriteBoard(board.id)}
                 />
             </div>
-        </div>
+        </Wrapper>
     );
 };

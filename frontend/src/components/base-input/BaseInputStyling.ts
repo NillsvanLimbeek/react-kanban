@@ -14,7 +14,7 @@ export const Label = styled.label<{ focus: boolean }>`
     transition: all 0.2s ease-in-out;
     padding: 0 2.5px;
 
-    color: ${(props) =>
+    ${(props) =>
         props.focus
             ? `
             font-size: 1.25rem;

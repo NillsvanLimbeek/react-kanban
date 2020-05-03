@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './BoardSquare.scss';
+import { Square, Star } from './BoardSquareStyling';
 
 type Props = {
     color: string;
@@ -10,19 +10,17 @@ type Props = {
 
 export const BoardSquare = ({ color, favorite, makeFavorite }: Props) => {
     return (
-        <div
-            className="board-square"
-            onClick={() => makeFavorite(!favorite)}
+        <Square
             style={{
                 backgroundColor: `${color}`,
                 boxShadow: `2px 2px 7px 2px ${color}4d`,
             }}
         >
-            {favorite ? (
-                <i className="board-square__star fas fa-star" />
-            ) : (
-                <i className="board-square__star board-square__star--outline far fa-star" />
-            )}
-        </div>
+            <Star
+                className="fas fa-star"
+                onClick={() => makeFavorite(!favorite)}
+                favorite={!favorite}
+            />
+        </Square>
     );
 };
