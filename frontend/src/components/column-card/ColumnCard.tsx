@@ -1,8 +1,8 @@
 import React from 'react';
 
-import './ColumnCard.scss';
+import { Card, Labels, Label, Title } from './ColumnCardStyling';
 
-import { ICard } from '../../data/types/Card';
+import { ICard } from '../../data';
 
 type Props = {
     card: ICard;
@@ -10,21 +10,20 @@ type Props = {
 
 export const ColumnCard = ({ card }: Props) => {
     return (
-        <div className="column-card">
-            <div className="column-card__labels">
+        <Card>
+            <Labels>
                 {card.labels.length > 0 &&
                     card.labels.map((label) => (
-                        <div
-                            className="column-card__label"
+                        <Label
                             style={{
                                 backgroundColor: `var(--color-${label})`,
                             }}
                             key={label}
                         />
                     ))}
-            </div>
+            </Labels>
 
-            <p className="column-card__title">{card.title}</p>
-        </div>
+            <Title>{card.title}</Title>
+        </Card>
     );
 };

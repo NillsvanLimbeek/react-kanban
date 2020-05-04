@@ -1,35 +1,18 @@
 import React, { useRef } from 'react';
 
-import './Dropdown.scss';
+import { Wrapper } from './DropdownStyling';
+
+import { useClickOutside } from '../../hooks';
 
 type Props = {
     children: React.ReactNode;
-    open: boolean;
     onClickOutside: () => void;
 };
 
-export const Dropdown = ({ children, open, onClickOutside }: Props) => {
+export const Dropdown = ({ children, onClickOutside }: Props) => {
     const el = useRef<HTMLDivElement>(null);
 
-    // useEffect(() => {
-    //     open
-    //         ? document.addEventListener('click', handleClickOutside)
-    //         : document.removeEventListener('click', handleClickOutside);
+    useClickOutside(el, onClickOutside);
 
-    //     return () => {
-    //         document.removeEventListener('click', handleClickOutside);
-    //     };
-    // }, [open]);
-
-    // const handleClickOutside = (e: any) => {
-    //     if (el && !el.current?.contains(e.target)) {
-    //         onClickOutside();
-    //     }
-    // };
-
-    return (
-        <div ref={el} className="dropdown">
-            {children}
-        </div>
-    );
+    return <Wrapper ref={el}>{children}</Wrapper>;
 };

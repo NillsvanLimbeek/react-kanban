@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { FlexAlign } from '../../assets/scss/utils/mixins';
+
 export const Wrapper = styled.div`
     align-self: flex-start;
 
@@ -14,9 +16,8 @@ export const Input = styled.input`
 `;
 
 export const Add = styled.button`
-    display: flex;
+    ${FlexAlign}
     justify-content: space-between;
-    align-items: center;
 
     width: 100%;
 

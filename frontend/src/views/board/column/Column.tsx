@@ -24,8 +24,10 @@ import { IBoard, IColumn, ICard } from '../../../data';
 
 import { InlineEdit } from '../../../components/inline-edit/InlineEdit';
 import { Dropdown } from '../../../components/dropdown/Dropdown';
-import { DroppableComponent } from '../../../components/droppable-component/DroppableComponent';
-import { DraggableComponent } from '../../../components/droppable-component/DraggableComponent';
+import {
+    DroppableComponent,
+    DraggableComponent,
+} from '../../../components/drag-drop-components/DragDropComponents';
 import { DraggableCard } from '../../../components/column-card/DraggableCard';
 import { AddCard } from '../../../components/add-card/AddCard';
 
@@ -155,7 +157,6 @@ export const Column = ({ column, cards, index }: Props) => {
 
                         {dropdown && (
                             <Dropdown
-                                open={dropdown}
                                 onClickOutside={() => setDropdown(!dropdown)}
                             >
                                 Test

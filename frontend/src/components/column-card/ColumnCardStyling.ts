@@ -1,4 +1,6 @@
-.column-card {
+import styled from 'styled-components';
+
+export const Card = styled.div`
     padding: 1rem;
     border: 1px solid var(--color-grey-light);
     border-radius: var(--border-radius);
@@ -9,13 +11,13 @@
     &:hover {
         border-color: var(--color-grey);
     }
-}
+`;
 
-.column-card__labels {
+export const Labels = styled.div`
     display: flex;
-}
+`;
 
-.column-card__label {
+export const Label = styled.div`
     width: 3rem;
     height: 3px;
 
@@ -24,9 +26,9 @@
     &:not(:last-child) {
         margin-right: 5px;
     }
-}
+`;
 
-.column-card__title {
+export const Title = styled.p`
     margin-top: 5px;
     font-weight: 500;
-}
+`;
