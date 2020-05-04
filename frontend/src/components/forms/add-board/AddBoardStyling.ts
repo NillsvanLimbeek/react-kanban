@@ -1,16 +1,18 @@
-.add-board {
+import styled from 'styled-components';
+
+export const Wrapper = styled.div`
     padding: 4rem;
-}
 
-.add-board div {
-    margin-bottom: 1.75rem;
-}
+    & div {
+        margin-bottom: 1.75rem;
+    }
+`;
 
-.add-board h3 {
+export const H3 = styled.h3`
     margin-top: 0;
-}
+`;
 
-.add-board button {
+export const Button = styled.button`
     width: 100%;
 
     padding: 7.5px 5px;
@@ -23,4 +25,4 @@
     &:hover {
         background: var(--color-blue-dark);
     }
-}
+`;

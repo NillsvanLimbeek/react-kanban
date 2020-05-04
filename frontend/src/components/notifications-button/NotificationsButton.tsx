@@ -1,11 +1,11 @@
 import React from 'react';
 
-import './NotificationsButton.scss';
+import { Bell, Button } from './NotificationsButtonStyling';
 
 export const NotificationsButton = () => {
     return (
-        <div className="notifications-button">
-            <i className="notifications-button__bell far fa-bell" />
-        </div>
+        <Button>
+            <Bell className="far fa-bell" />
+        </Button>
     );
 };

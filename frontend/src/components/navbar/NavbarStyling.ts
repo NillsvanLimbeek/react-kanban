@@ -1,4 +1,8 @@
-.navbar {
+import styled from 'styled-components';
+
+import { FlexCenterAlign, FlexAlign } from '../../assets/scss/utils/mixins';
+
+export const Wrapper = styled.nav`
     display: flex;
 
     height: 7.5rem;
@@ -7,19 +11,15 @@
     margin-bottom: 3.5rem;
     border-bottom: 1px solid rgba(128, 128, 128, 0.25);
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
-}
+`;
 
-.navbar__logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+export const Logo = styled.div`
+    ${FlexCenterAlign}
     flex: 1 0 auto;
-}
+`;
 
-.navbar__link {
-    display: flex;
-    align-items: center;
+export const NavLink = styled.div`
+    ${FlexAlign}
 
     height: 100%;
 
@@ -31,9 +31,9 @@
     &:hover {
         color: var(--color-black);
     }
-}
+`;
 
-.navbar__logo i {
+export const Icon = styled.i`
     font-size: 2.5rem;
     margin-right: 1rem;
-}
+`;

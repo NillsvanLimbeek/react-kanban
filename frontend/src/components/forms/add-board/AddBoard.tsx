@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import './AddBoard.scss';
+import { Wrapper, H3, Button } from './AddBoardStyling';
 
 import { useBoardsDispatch } from '../../../context/boards/boardsContext';
 
@@ -41,8 +41,8 @@ export const AddBoard = ({ onAddBoard }: Props) => {
     };
 
     return (
-        <div className="add-board">
-            <h3>Add Board</h3>
+        <Wrapper>
+            <H3>Add Board</H3>
 
             <form onSubmit={onSubmit}>
                 <BaseInput
@@ -58,8 +58,8 @@ export const AddBoard = ({ onAddBoard }: Props) => {
                     onChange={setInput}
                 />
 
-                <button>Submit</button>
+                <Button>Submit</Button>
             </form>
-        </div>
+        </Wrapper>
     );
 };

@@ -1,11 +1,11 @@
 import React from 'react';
 
-import './MenuButton.scss';
+import { Button, Icon } from './MenuButtonStyling';
 
 export const MenuButton = () => {
     return (
-        <div className="menu-button">
-            <i className="menu-button__bars fas fa-bars" />
-        </div>
+        <Button>
+            <Icon className="fas fa-bars" />
+        </Button>
     );
 };

@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import './Navbar.scss';
+import { Wrapper, Icon, NavLink, Logo } from './NavbarStyling';
 
 import {
     useBoardsState,
     useBoardsDispatch,
-} from '../../context/boards/boardsContext';
-import { useCardsState } from '../../context/cards/cardsContext';
+    useCardsState,
+} from '../../context';
 
 import { BoardsMenu } from '../boards-menu/BoardsMenu';
 import { Search } from '../search/Search';
@@ -41,7 +41,7 @@ export const Navbar = () => {
     };
 
     return (
-        <nav className="navbar">
+        <Wrapper>
             <BoardsMenu
                 boards={boards}
                 removeBoard={removeBoard}
@@ -55,15 +55,15 @@ export const Navbar = () => {
                 cards={cards}
             />
 
-            <Link to="/" className="navbar__logo">
-                <div className="navbar__link">
-                    <i className="fab fa-trello" /> Trello
-                </div>
-            </Link>
+            <Logo as={Link} to="/">
+                <NavLink>
+                    <Icon className="fab fa-trello" /> Trello
+                </NavLink>
+            </Logo>
 
             <UserButton />
             <NotificationsButton />
             <MenuButton />
-        </nav>
+        </Wrapper>
     );
 };

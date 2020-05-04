@@ -1,17 +1,19 @@
-.modal__body {
+import styled from 'styled-components';
+
+export const Body = styled.div`
     position: absolute;
     left: 50%;
     top: 25%;
-    transform: translateX(-50%) translateY(-25%);
     z-index: 1001;
 
+    transform: translateX(-50%) translateY(-25%);
     background: var(--color-white);
     box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
     border-radius: var(--border-radius);
     cursor: auto;
-}
+`;
 
-.modal__close {
+export const Close = styled.i`
     position: absolute;
     right: 1.5rem;
     top: 1.5rem;
@@ -23,9 +25,9 @@
     &:hover {
         color: var(--color-black);
     }
-}
+`;
 
-.modal__background {
+export const Background = styled.div`
     position: fixed;
     top: 0;
     left: 0;
@@ -36,4 +38,4 @@
 
     background: rgba(0, 0, 0, 0.25);
     cursor: auto;
-}
+`;

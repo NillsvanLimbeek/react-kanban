@@ -1,4 +1,6 @@
-.inline-edit {
+import styled from 'styled-components';
+
+export const Input = styled.input`
     width: 100%;
 
     padding: 5px 1rem;
@@ -6,8 +8,8 @@
     font-size: 1.6rem;
     font-family: 'Raleway';
     font-weight: 600;
-}
 
-.inline-edit::placeholder {
-    font-weight: 400;
-}
+    &::placeholder {
+        font-weight: 400;
+    }
+`;
