@@ -1,14 +1,17 @@
-.search {
-    display: flex;
-    align-items: center;
+import styled from 'styled-components';
+
+import { FlexAlign, black, grey, white, borderRadius } from '../../styling';
+
+export const Wrapper = styled.div`
+    ${FlexAlign}
 
     position: relative;
 
     width: 100%;
     flex: 0 0 20rem;
-}
+`;
 
-.search__input {
+export const Input = styled.input`
     position: relative;
     z-index: 100;
 
@@ -20,26 +23,17 @@
     &:focus {
         outline: none;
     }
-}
+`;
 
-.search__icon {
+export const Label = styled.label<{ active: boolean }>`
     position: absolute;
     left: 7.5px;
     z-index: 1000;
 
-    color: lightgrey;
-}
+    color: ${(props) => (props.active ? `${black}` : `${grey}`)};
+`;
 
-.search__icon--active {
-    color: black;
-}
-
-.search__times {
-    position: absolute;
-    right: 1rem;
-}
-
-.search__modal-background {
+export const ModalBackground = styled.div`
     position: fixed;
     top: 0;
     left: 0;
@@ -48,9 +42,9 @@
     width: 100vw;
 
     background: rgba(0, 0, 0, 0.25);
-}
+`;
 
-.search__modal-body {
+export const ModalBody = styled.div`
     position: absolute;
     top: 7rem;
     left: 0;
@@ -58,8 +52,8 @@
 
     width: 35rem;
 
-    background: var(--color-white);
+    background: ${white};
     padding: 2rem;
-    border-radius: var(--border-radius);
+    border-radius: ${borderRadius};
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.15);
-}
+`;

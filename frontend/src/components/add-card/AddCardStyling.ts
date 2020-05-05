@@ -1,15 +1,17 @@
 import styled from 'styled-components';
 
+import { borderRadius, greyLight, grey } from '../../styling';
+
 export const TextArea = styled.textarea`
     height: 5rem;
 
-    border-radius: var(--border-radius);
-    border-color: var(--color-grey-light);
+    border-radius: ${borderRadius};
+    border-color: ${greyLight};
     padding: 5px;
     resize: none;
 
     &:focus {
         outline: none;
-        border-color: var(--color-grey);
+        border-color: ${grey};
     }
 `;

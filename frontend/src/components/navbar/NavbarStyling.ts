@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
-import { FlexCenterAlign, FlexAlign } from '../../assets/scss/utils/mixins';
+import { FlexCenterAlign, FlexAlign, white, grey, black } from '../../styling';
 
 export const Wrapper = styled.nav`
     display: flex;
 
     height: 7.5rem;
 
-    background: var(--color-white);
+    background: ${white};
     margin-bottom: 3.5rem;
     border-bottom: 1px solid rgba(128, 128, 128, 0.25);
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
@@ -23,13 +23,13 @@ export const NavLink = styled.div`
 
     height: 100%;
 
-    color: var(--color-grey);
+    color: ${grey};
     font-size: 2rem;
     letter-spacing: 1px;
     cursor: pointer;
 
     &:hover {
-        color: var(--color-black);
+        color: ${black};
     }
 `;
 

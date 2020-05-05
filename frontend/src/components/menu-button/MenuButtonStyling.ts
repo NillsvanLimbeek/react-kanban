@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { FlexCenterAlign } from '../../assets/scss/utils/mixins';
+import { FlexCenterAlign, black, grey } from '../../styling';
 
 export const Button = styled.button`
     ${FlexCenterAlign}
@@ -15,9 +15,9 @@ export const Button = styled.button`
 `;
 
 export const Icon = styled.i`
-    color: var(--color-grey);
+    color: ${grey};
 
     &:hover {
-        color: var(--color-black);
+        color: ${black};
     }
 `;

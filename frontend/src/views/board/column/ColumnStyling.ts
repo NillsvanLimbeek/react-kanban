@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { white, borderRadius, greyDark, black } from '../../../styling';
+
 export const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
@@ -9,8 +11,8 @@ export const Wrapper = styled.div`
     width: 20rem;
 
     padding: 2rem 1.5rem;
-    background: var(--color-white);
-    border-radius: var(--border-radius);
+    background: ${white};
+    border-radius: ${borderRadius};
     box-shadow: 3px 3px 3px 1px rgba(128, 128, 128, 0.25);
     margin-right: 2rem;
 `;
@@ -25,19 +27,19 @@ export const Header = styled.div`
 
 export const Icon = styled.i`
     &:first-child {
-        color: var(--color-grey-dark);
+        color: ${greyDark};
         font-size: 7.5px;
         margin-right: 7.5px;
     }
 
     &:last-child {
         padding: 5px;
-        color: var(--color-grey-dark);
+        color: ${greyDark};
         font-size: 1rem;
         cursor: pointer;
 
         &:hover {
-            color: var(--color-black);
+            color: ${black};
         }
     }
 `;
@@ -67,11 +69,11 @@ export const Add = styled.button`
     background: transparent;
 
     text-align: center;
-    color: var(--color-grey-dark);
+    color: ${greyDark};
     cursor: pointer;
 
     &:hover {
-        color: var(--color-black);
+        color: ${black};
     }
 
     &:focus {

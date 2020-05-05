@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { white, borderRadius } from '../../styling';
+
 export const Background = styled.div`
     position: fixed;
     top: 0;
@@ -33,9 +35,9 @@ export const Body = styled.div`
     width: 50rem;
 
     padding: 2.5rem;
-    background: var(--color-white);
+    background: ${white};
     box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
-    border-radius: var(--border-radius);
+    border-radius: ${borderRadius};
     cursor: auto;
 `;
 

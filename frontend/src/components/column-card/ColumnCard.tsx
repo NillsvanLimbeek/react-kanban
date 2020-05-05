@@ -15,8 +15,9 @@ export const ColumnCard = ({ card }: Props) => {
                 {card.labels.length > 0 &&
                     card.labels.map((label) => (
                         <Label
+                            // TODO backgroundColor variable
                             style={{
-                                backgroundColor: `var(--color-${label})`,
+                                backgroundColor: `${label}`,
                             }}
                             key={label}
                         />

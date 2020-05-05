@@ -1,4 +1,8 @@
-.side-menu__body {
+import styled from 'styled-components';
+
+import { white, grey, black } from '../../styling';
+
+export const Body = styled.div`
     position: absolute;
     left: 0;
     top: 0;
@@ -7,27 +11,27 @@
     height: 100vh;
     width: 30rem;
 
-    background: var(--color-white);
+    background: ${white};
     border-bottom: 1px solid rgba(128, 128, 128, 0.25);
     box-shadow: 5px 0 5px rgba(0, 0, 0, 0.1);
     cursor: auto;
-}
+`;
 
-.side-menu__close {
+export const Close = styled.i`
     position: absolute;
     right: 1.5rem;
     top: 1.5rem;
 
     font-size: 2rem;
-    color: var(--color-grey);
+    color: ${grey};
     cursor: pointer;
 
     &:hover {
-        color: var(--color-black);
+        color: ${black};
     }
-}
+`;
 
-.side-menu__background {
+export const Background = styled.div`
     position: fixed;
     top: 0;
     left: 0;
@@ -38,4 +42,4 @@
 
     background: rgba(0, 0, 0, 0.25);
     cursor: auto;
-}
+`;

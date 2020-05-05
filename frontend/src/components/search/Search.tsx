@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from 'react';
 
-import './Search.scss';
+import {
+    Input,
+    Label,
+    ModalBackground,
+    ModalBody,
+    Wrapper,
+} from './SearchStyling';
 
-import { IBoard } from '../../data/types/Board';
-import { ICard } from '../../data/types/Card';
+import { IBoard, ICard } from '../../data';
+
 import { ColumnCard } from '../column-card/ColumnCard';
 
 type Props = {
@@ -21,6 +27,7 @@ export const Search = ({
     boards,
     cards,
 }: Props) => {
+    const [active, setActive] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [searchedBoards, setSearchedBoard] = useState<IBoard[] | undefined>(
         undefined,
@@ -53,23 +60,24 @@ export const Search = ({
     }, [search, cards]);
 
     return (
-        <div className="search">
-            <label className="search__icon" htmlFor="search">
+        <Wrapper>
+            <Label active={active} htmlFor="search">
                 <i className="fas fa-search" />
-            </label>
+            </Label>
 
-            <input
-                className="search__input"
+            <Input
                 type="text"
                 name="search"
                 placeholder="Search..."
                 value={search}
                 onChange={onChange}
+                onFocus={() => setActive(true)}
+                onBlur={() => setActive(false)}
             />
 
             {withModal && showModal && (
-                <div className="search__modal">
-                    <div className="search__modal-body">
+                <>
+                    <ModalBody>
                         <>
                             <h4>Cards</h4>
                             {searchedCards?.map((card) => {
@@ -83,11 +91,11 @@ export const Search = ({
                                 return <p key={board.id}>{board.title}</p>;
                             })}
                         </>
-                    </div>
+                    </ModalBody>
 
-                    <div className="search__modal-background" />
-                </div>
+                    <ModalBackground />
+                </>
             )}
-        </div>
+        </Wrapper>
     );
 };

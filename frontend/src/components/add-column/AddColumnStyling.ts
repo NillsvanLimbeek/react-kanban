@@ -1,14 +1,21 @@
 import styled from 'styled-components';
 
-import { FlexAlign } from '../../assets/scss/utils/mixins';
+import {
+    FlexAlign,
+    white,
+    borderRadius,
+    boxShadow,
+    greyDark,
+    black,
+} from '../../styling';
 
 export const Wrapper = styled.div`
     align-self: flex-start;
 
     padding: 2rem 1.5rem;
-    background-color: var(--color-white);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
+    background-color: ${white};
+    border-radius: ${borderRadius};
+    box-shadow: ${boxShadow};
 `;
 
 export const Input = styled.input`
@@ -27,20 +34,20 @@ export const Add = styled.button`
 `;
 
 export const P = styled.p`
-    color: var(--color-grey-dark);
+    color: ${greyDark};
     margin: 0;
     cursor: pointer;
 
     &:hover {
-        color: var(--color-black);
+        color: ${black};
     }
 `;
 
 export const Icon = styled.i`
-    color: var(--color-grey-dark);
+    color: ${greyDark};
     cursor: pointer;
 
     &:hover {
-        color: var(--color-black);
+        color: ${black};
     }
 `;

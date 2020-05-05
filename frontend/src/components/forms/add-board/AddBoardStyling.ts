@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { white, blue, blueDark } from '../../../styling';
+
 export const Wrapper = styled.div`
     padding: 4rem;
 
@@ -17,12 +19,12 @@ export const Button = styled.button`
 
     padding: 7.5px 5px;
     font-size: 1.4rem;
-    color: var(--color-white);
-    background-color: var(--color-blue);
+    color: ${white};
+    background-color: ${blue};
     border: none;
     cursor: pointer;
 
     &:hover {
-        background: var(--color-blue-dark);
+        background: ${blueDark};
     }
 `;

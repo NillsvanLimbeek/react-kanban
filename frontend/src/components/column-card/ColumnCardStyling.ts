@@ -1,15 +1,17 @@
 import styled from 'styled-components';
 
+import { greyLight, borderRadius, white, grey } from '../../styling';
+
 export const Card = styled.div`
     padding: 1rem;
-    border: 1px solid var(--color-grey-light);
-    border-radius: var(--border-radius);
-    background-color: var(--color-white);
+    border: 1px solid ${greyLight};
+    border-radius: ${borderRadius};
+    background-color: ${white};
     margin-bottom: 1.5rem;
     cursor: pointer;
 
     &:hover {
-        border-color: var(--color-grey);
+        border-color: ${grey};
     }
 `;
 

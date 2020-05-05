@@ -1,6 +1,12 @@
 import styled from 'styled-components';
 
-import { FlexCenterAlign } from '../../assets/scss/utils/mixins';
+import {
+    FlexCenterAlign,
+    grey,
+    black,
+    greyDark,
+    borderRadius,
+} from '../../styling';
 
 export const Wrapper = styled.div`
     flex: 0 0 15rem;
@@ -17,14 +23,14 @@ export const MenuButton = styled.button`
 
     border: none;
     background-color: transparent;
-    color: var(--color-grey);
+    color: ${grey};
     cursor: pointer;
 
     &:hover {
-        color: var(--color-black);
+        color: ${black};
 
         i {
-            color: var(--color-black);
+            color: ${black};
         }
     }
 `;
@@ -42,18 +48,18 @@ export const Add = styled.button`
     border: none;
     background-color: transparent;
     padding: 1rem 1.5rem;
-    color: var(--color-grey-dark);
+    color: ${greyDark};
     cursor: pointer;
 
     &:hover {
-        color: var(--color-black);
+        color: ${black};
     }
 `;
 
 export const AddIcon = styled.i`
     padding: 7.5px;
     margin-right: 1rem;
-    border: 1px dashed var(--color-grey-dark);
-    border-radius: var(--border-radius);
-    color: var(--color-grey-dark);
+    border: 1px dashed ${greyDark};
+    border-radius: ${borderRadius};
+    color: ${greyDark};
 `;

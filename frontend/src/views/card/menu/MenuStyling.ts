@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { grey, borderRadius, white, greyLight } from '../../../styling';
+
 export const H4 = styled.h4`
     margin: 0 0 1rem 0;
 `;
@@ -12,17 +14,17 @@ export const Btn = styled.button`
 
     font-size: 1.3rem;
     padding: 5px;
-    border: 1px solid var(--color-grey);
-    border-radius: var(--border-radius);
+    border: 1px solid ${grey};
+    border-radius: ${borderRadius};
     cursor: pointer;
-    background-color: var(--color-white);
+    background-color: ${white};
 
     &:not(:last-child) {
         margin-bottom: 1rem;
     }
 
     &:hover {
-        background-color: var(--color-grey-light);
+        background-color: ${greyLight};
     }
 `;
 

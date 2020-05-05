@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { white, borderRadius, greyDark, black } from '../../styling';
+
 export const Wrapper = styled.div`
     display: flex;
     justify-content: center;
@@ -33,14 +35,14 @@ export const Add = styled.button`
 
     padding: 2rem 1.5rem;
     text-align: center;
-    background: var(--color-white);
+    background: ${white};
     border: none;
-    border-radius: var(--border-radius);
+    border-radius: ${borderRadius};
     box-shadow: 3px 3px 3px 1px rgba(128, 128, 128, 0.25);
-    color: var(--color-grey-dark);
+    color: ${greyDark};
     cursor: pointer;
 
     &:hover {
-        color: var(--color-black);
+        color: ${black};
     }
 `;

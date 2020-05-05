@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-import { FlexCenterAlign } from '../../assets/scss/utils/mixins';
+import { FlexCenterAlign, borderRadius, white } from '../../styling';
 
 export const Square = styled.div`
     height: 4rem;
     width: 4rem;
 
-    border-radius: var(--border-radius);
+    border-radius: ${borderRadius};
     margin-right: 1.5rem;
     cursor: pointer;
 `;
@@ -18,11 +18,11 @@ export const Star = styled.i<{ favorite: boolean }>`
     height: 100%;
 
     font-size: 2rem;
-    color: var(--color-white);
+    color: ${white};
 
     &:hover {
         opacity: 0.5;
     }
 
-    ${(props) => (props.favorite ? `opacity: 0;` : ``)}
+    ${(props) => props.favorite && `opacity: 0;`}
 `;
