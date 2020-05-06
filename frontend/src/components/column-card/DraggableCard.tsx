@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { ICard } from '../../data/types/Card';
+import { ICard } from '../../data';
 
-import { DraggableComponent } from '../drag-drop-components/DragDropComponents';
+import { DraggableComponent } from '../drag-drop-components';
 import { ColumnCard } from './ColumnCard';
 
 type Props = {

@@ -17,7 +17,7 @@ import { Modal } from '../modal/Modal';
 import { ModalCenter } from '../modal/ModalCenter';
 import { AddBoard } from '../forms/add-board/AddBoard';
 
-import { IBoard } from '../../data/types/Board';
+import { IBoard } from '../../data';
 
 type Props = {
     boards: IBoard[];

@@ -9,7 +9,7 @@ import {
     Star,
 } from './BoardListButtonStyling';
 
-import { IBoard } from '../../data/types/Board';
+import { IBoard } from '../../data';
 
 type Props = {
     board: IBoard;
