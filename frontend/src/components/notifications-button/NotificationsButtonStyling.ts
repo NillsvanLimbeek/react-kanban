@@ -2,6 +2,10 @@ import styled from 'styled-components';
 
 import { flexCenterAlign, grey, black } from '../../styling';
 
+export const Bell = styled.i`
+    color: ${grey};
+`;
+
 export const Button = styled.button`
     ${flexCenterAlign}
     flex: 0 0 5rem;
@@ -12,12 +16,10 @@ export const Button = styled.button`
     border: none;
     background-color: transparent;
     cursor: pointer;
-`;
-
-export const Bell = styled.i`
-    color: ${grey};
 
     &:hover {
-        color: ${black};
+        ${Bell} {
+            color: ${black};
+        }
     }
 `;

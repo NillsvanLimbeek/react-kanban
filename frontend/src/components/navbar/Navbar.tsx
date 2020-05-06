@@ -55,8 +55,8 @@ export const Navbar = () => {
                 cards={cards}
             />
 
-            <Logo as={Link} to="/">
-                <NavLink>
+            <Logo>
+                <NavLink as={Link} to="/">
                     <Icon className="fab fa-trello" /> Trello
                 </NavLink>
             </Logo>

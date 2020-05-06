@@ -16,7 +16,7 @@ export const Body = styled.div`
 `;
 
 export const Close = styled.i`
-    ${absolute({ x: '1.5rem', y: '1.5rem' })}
+    ${absolute({ xProp: 'right', x: '1.5rem', y: '1.5rem' })}
 
     font-size: 2rem;
     color: ${grey};
