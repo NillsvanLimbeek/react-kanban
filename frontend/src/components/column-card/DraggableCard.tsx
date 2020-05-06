@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ICard } from '../../data';
 
-import { DraggableComponent } from '../drag-drop-components';
+import { DraggableComponent } from '../drag-drop-components/DragDropComponents';
 import { ColumnCard } from './ColumnCard';
 
 type Props = {

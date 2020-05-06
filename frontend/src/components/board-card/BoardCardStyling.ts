@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { greyDark, borderRadius, white, black } from '../../styling';
 
 export const Wrapper = styled.div`
-    height: 4rem;
+    height: 6.25rem;
 
     padding: 1rem;
     border: 1px solid ${greyDark};
