@@ -1,7 +1,14 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 
-import './BoardsMenu.scss';
+import {
+    Wrapper,
+    Add,
+    AddIcon,
+    Icon,
+    Menu,
+    MenuButton,
+} from './BoardsMenuStyling';
 
 import { SideMenu } from '../side-menu/SideMenu';
 import { Search } from '../search/Search';
@@ -68,25 +75,21 @@ export const BoardsMenu = ({ boards, removeBoard, favoriteBoard }: Props) => {
     };
 
     return (
-        <div className="boards-menu">
-            <div
-                className="boards-menu__button"
-                onClick={() => setSideMenu(true)}
-            >
-                <i className="boards-menu__icon fas fa-th" />
-                <p className="boards-menu__title">Boards</p>
-            </div>
+        <Wrapper>
+            <MenuButton onClick={() => setSideMenu(true)}>
+                <Icon className="fas fa-th" /> Boards
+            </MenuButton>
 
             {sideMenu && (
                 <SideMenu closeSideMenu={() => setSideMenu(false)}>
-                    <div className="boards-menu__menu">
+                    <Menu>
                         <Search
                             search={search}
                             onChange={(e) => setSearch(e.currentTarget.value)}
                         />
 
                         {favoriteBoards.length > 0 && (
-                            <Fragment>
+                            <>
                                 <h3>Favorite Boards</h3>
 
                                 {favoriteBoards.map((board) => (
@@ -98,10 +101,10 @@ export const BoardsMenu = ({ boards, removeBoard, favoriteBoard }: Props) => {
                                         favoriteBoard={() => favoriteBoard}
                                     />
                                 ))}
-                            </Fragment>
+                            </>
                         )}
 
-                        <Fragment>
+                        <>
                             <h3>Personal Boards</h3>
 
                             {filtererdBoards.map((board) => (
@@ -114,14 +117,11 @@ export const BoardsMenu = ({ boards, removeBoard, favoriteBoard }: Props) => {
                                 />
                             ))}
 
-                            <div
-                                className="boards-menu__add"
-                                onClick={openModal}
-                            >
-                                <i className="fas fa-plus"></i> Add Board
-                            </div>
-                        </Fragment>
-                    </div>
+                            <Add onClick={openModal}>
+                                <AddIcon className="fas fa-plus" /> Add Board
+                            </Add>
+                        </>
+                    </Menu>
                 </SideMenu>
             )}
 
@@ -132,6 +132,6 @@ export const BoardsMenu = ({ boards, removeBoard, favoriteBoard }: Props) => {
                     </ModalCenter>
                 </Modal>
             )}
-        </div>
+        </Wrapper>
     );
 };

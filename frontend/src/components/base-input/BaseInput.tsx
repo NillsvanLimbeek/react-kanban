@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import './BaseInput.scss';
+import { Wrapper, Label, Input } from './BaseInputStyling';
 
 type Props = {
     value: string;
@@ -26,20 +26,13 @@ export const BaseInput = ({
     }, [value, focus]);
 
     return (
-        <div className="base-input">
+        <Wrapper>
             {label && (
-                <label
-                    htmlFor="input"
-                    className={
-                        focus
-                            ? 'base-input__label base-input__label--active'
-                            : 'base-input__label'
-                    }
-                >
+                <Label htmlFor="input" focus={focus}>
                     {label}
-                </label>
+                </Label>
             )}
-            <input
+            <Input
                 type="text"
                 name={name}
                 placeholder={placeholder}
@@ -49,6 +42,6 @@ export const BaseInput = ({
                 onFocus={() => setFocus(true)}
                 onBlur={() => setFocus(false)}
             />
-        </div>
+        </Wrapper>
     );
 };

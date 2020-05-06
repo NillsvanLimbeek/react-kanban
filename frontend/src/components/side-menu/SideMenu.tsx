@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './SideMenu.scss';
+import { Background, Body, Close } from './SideMenuStyling';
 
 type Props = {
     children: React.ReactNode;
@@ -10,15 +10,15 @@ type Props = {
 export const SideMenu = ({ children, closeSideMenu }: Props) => {
     return (
         <div className="side-menu">
-            <div className="side-menu__body">
-                <i
-                    className="side-menu__close fas fa-times"
+            <Body>
+                <Close
+                    className="fas fa-times"
                     onClick={() => closeSideMenu()}
                 />
                 {children}
-            </div>
+            </Body>
 
-            <div className="side-menu__background" />
+            <Background />
         </div>
     );
 };

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import './BoardCard.scss';
+import { Wrapper, Title, P, Span } from './BoardCardStyling';
 
 import { IBoard, IColumn, ICard } from '../../data';
 
@@ -30,21 +30,16 @@ export const BoardCard = ({ board, columns, cards }: Props) => {
     }, [columns, cards, board]);
 
     return (
-        <div
-            className="board-card"
-            style={{ borderTop: `2px solid ${board.color}` }}
-        >
-            <div className="board-card__title">
-                <p>{board.title}</p>
-                {board.favorite && (
-                    <i className="boards-card__star fas fa-star" />
-                )}
-            </div>
+        <Wrapper style={{ borderTop: `2px solid ${board.color}` }}>
+            <Title>
+                <P>{board.title}</P>
+                {board.favorite && <i className="fas fa-star" />}
+            </Title>
 
-            <span className="board-card__info">
+            <Span>
                 {columnsLength} {columnsLength === 1 ? 'column' : 'columns'} |{' '}
                 {cardsLength} {cardsLength === 1 ? 'card' : 'cards'}
-            </span>
-        </div>
+            </Span>
+        </Wrapper>
     );
 };

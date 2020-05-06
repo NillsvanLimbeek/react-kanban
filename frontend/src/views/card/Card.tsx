@@ -1,14 +1,25 @@
-import React, { useEffect, useState, Fragment } from 'react';
+import React, { useEffect, useState } from 'react';
 import { RouteComponentProps, useHistory } from 'react-router-dom';
 
-import './Card.scss';
+import {
+    Background,
+    Body,
+    Icon,
+    H3,
+    P,
+    Title,
+    Comments,
+    Description,
+    Labels,
+    SideMenu,
+} from './CardStyling';
 
 import { useColumnsState, useCardsState } from '../../context';
 
 import { IColumn, ICard } from '../../data';
 
 import { InlineEdit } from '../../components/inline-edit/InlineEdit';
-import { Labels } from './labels/Labels';
+import { Labels as LabelsComponent } from './labels/Labels';
 import { Menu } from './menu/Menu';
 
 type RouteInfo = {
@@ -50,18 +61,18 @@ export const Card = ({ match }: RouteComponentProps<RouteInfo>) => {
     };
 
     return (
-        <div className="card__background" onClick={() => history.goBack()}>
-            <div className="card__body">
+        <Background onClick={() => history.goBack()}>
+            <Body>
                 {card && column && (
-                    <Fragment>
-                        <div className="card__title">
-                            <i className="card__icon fas fa-chalkboard"></i>
+                    <>
+                        <Title>
+                            <Icon className="fas fa-chalkboard" />
 
                             <div>
                                 {!editTitle ? (
-                                    <h3 onClick={() => setEditTile(true)}>
+                                    <H3 onClick={() => setEditTile(true)}>
                                         {card.title}
-                                    </h3>
+                                    </H3>
                                 ) : (
                                     <InlineEdit
                                         value={card.title}
@@ -70,43 +81,43 @@ export const Card = ({ match }: RouteComponentProps<RouteInfo>) => {
                                 )}
 
                                 {/* TODO modal to move card to different board and/or column */}
-                                <p>In column - {column.title}</p>
+                                <P>In column - {column.title}</P>
                             </div>
-                        </div>
+                        </Title>
 
-                        <div className="card__labels">
-                            <i className="card__icon card__icon--labels fas fa-tags"></i>
+                        <Labels>
+                            <Icon className="fas fa-tags" />
 
                             <div>
-                                <h3>Labels</h3>
-                                <Labels labels={card.labels} />
+                                <H3>Labels</H3>
+                                <LabelsComponent labels={card.labels} />
                             </div>
-                        </div>
+                        </Labels>
 
-                        <div className="card__description">
-                            <i className="card__icon fas fa-align-justify"></i>
+                        <Description>
+                            <Icon className="fas fa-align-justify" />
 
                             <div>
-                                <h3>Description</h3>
+                                <H3>Description</H3>
                             </div>
-                        </div>
+                        </Description>
 
                         {/* activity */}
 
-                        <div className="card__comments">
-                            <i className="card__icon fas fa-list"></i>
+                        <Comments>
+                            <Icon className="fas fa-list" />
 
                             <div>
-                                <h3>Comments</h3>
+                                <H3>Comments</H3>
                             </div>
-                        </div>
+                        </Comments>
 
-                        <div className="card__side-menu">
+                        <SideMenu>
                             <Menu />
-                        </div>
-                    </Fragment>
+                        </SideMenu>
+                    </>
                 )}
-            </div>
-        </div>
+            </Body>
+        </Background>
     );
 };

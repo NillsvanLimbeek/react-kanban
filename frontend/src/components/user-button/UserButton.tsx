@@ -1,16 +1,16 @@
 import React from 'react';
 
-import './UserButton.scss';
+import { Button, Img, Text } from './UserButtonStyling';
 
 export const UserButton = () => {
     return (
-        <div className="user-button">
-            <img
+        <Button>
+            <Img
                 src="https://randomuser.me/api/portraits/men/75.jpg"
                 alt="UserAvatar"
             />
 
-            <p className="user-button__text">Hello Nills!</p>
-        </div>
+            <Text>Hello Nills!</Text>
+        </Button>
     );
 };

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 
-import './InlineEdit.scss';
+import { Input } from './InlineEditStyling';
 
 type Props = {
     value: string;
@@ -28,9 +28,8 @@ export const InlineEdit = ({ value, onBlur, placeholder }: Props) => {
     };
 
     return (
-        <input
+        <Input
             ref={input}
-            className="inline-edit"
             type="text"
             placeholder={placeholder}
             value={localValue}

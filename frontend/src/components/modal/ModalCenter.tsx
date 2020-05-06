@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './Modal.scss';
+import { Background, Body, Close } from './ModalStyling';
 
 type Props = {
     children: React.ReactNode;
@@ -9,16 +9,13 @@ type Props = {
 
 export const ModalCenter = ({ children, closeModal }: Props) => {
     return (
-        <div className="modal">
-            <div className="modal__body">
-                <i
-                    className="modal__close fas fa-times"
-                    onClick={() => closeModal()}
-                />
+        <>
+            <Body>
+                <Close className="fas fa-times" onClick={() => closeModal()} />
                 {children}
-            </div>
+            </Body>
 
-            <div className="modal__background" onClick={() => closeModal()} />
-        </div>
+            <Background onClick={() => closeModal()} />
+        </>
     );
 };

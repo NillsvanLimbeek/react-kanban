@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { DragDropContext, DropResult } from 'react-beautiful-dnd';
 
-import './Board.scss';
+import { Wrapper, Header, Columns, H3, P, Add } from './BoardStyling';
 
 import {
     useBoardsState,
@@ -12,16 +12,15 @@ import {
     useCardsState,
 } from '../../context';
 
-import { useColumnDrag } from '../../hooks/useColumnDrag';
-import { useCardDrag } from '../../hooks/useCardDrag';
+import { useColumnDrag, useCardDrag } from '../../hooks';
 
-import { generateGuid } from '../../utils/guid';
+import { generateGuid } from '../../utils';
 
 import { IBoard, IColumn } from '../../data';
 
 import { Column } from './column/Column';
 import { BoardSquare } from '../../components/board-square/BoardSquare';
-import { DroppableComponent } from '../../components/drag-drop-components';
+import { DroppableComponent } from '../../components/drag-drop-components/DragDropComponents';
 import { AddColumn } from '../../components/add-column/AddColumn';
 
 type RouteInfo = {
@@ -166,24 +165,24 @@ export const Board = ({ match }: RouteComponentProps<RouteInfo>) => {
     };
 
     return (
-        <div className="board">
+        <Wrapper>
             {board && (
                 <>
-                    <div className="board__header">
+                    <Header>
                         <BoardSquare
                             color={board.color}
                             favorite={board.favorite}
                             makeFavorite={makeFavorite}
                         />
 
-                        <div className="board__info">
-                            <h3>{board.title}</h3>
-                            <p>Nills</p>
+                        <div>
+                            <H3>{board.title}</H3>
+                            <P>Nills</P>
                         </div>
-                    </div>
+                    </Header>
 
                     <DragDropContext onDragEnd={onDragEnd}>
-                        <div className="board__columns">
+                        <Columns>
                             <DroppableComponent
                                 id={board.id}
                                 type="column"
@@ -200,17 +199,14 @@ export const Board = ({ match }: RouteComponentProps<RouteInfo>) => {
                             </DroppableComponent>
 
                             {!newColumn ? (
-                                <div className="board__add" onClick={addColumn}>
-                                    Add Column
-                                </div>
+                                <Add onClick={addColumn}>Add Column</Add>
                             ) : (
                                 <AddColumn setColumnTitle={setColumnTitle} />
                             )}
-                            {/* <AddColumn setColumnTitle={setColumnTitle} /> */}
-                        </div>
+                        </Columns>
                     </DragDropContext>
                 </>
             )}
-        </div>
+        </Wrapper>
     );
 };

@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useClickOutside } from '../../hooks/useClickOutside';
 
-import './AddColumn.scss';
+import { Wrapper, Input, Add, P, Icon } from './AddColumnStyling';
 
 type Props = {
     setColumnTitle: (e: string) => void;
@@ -9,6 +10,9 @@ type Props = {
 export const AddColumn = ({ setColumnTitle }: Props) => {
     const [value, setValue] = useState('');
     const input = useRef<HTMLInputElement>(null);
+    const element = useRef<HTMLDivElement>(null);
+
+    useClickOutside(element, () => setColumnTitle(''));
 
     useEffect(() => {
         input.current?.focus();
@@ -33,8 +37,8 @@ export const AddColumn = ({ setColumnTitle }: Props) => {
     };
 
     return (
-        <div className="add-column">
-            <input
+        <Wrapper ref={element}>
+            <Input
                 ref={input}
                 type="text"
                 value={value}
@@ -43,13 +47,13 @@ export const AddColumn = ({ setColumnTitle }: Props) => {
                 placeholder="Please give this column a name..."
             />
 
-            <div className="add-column__add">
-                <p onClick={onSubmit}>Add Column</p>
-                <i
-                    className="add-column__times fas fa-times"
+            <Add>
+                <P onClick={onSubmit}>Add Column</P>
+                <Icon
+                    className="fas fa-times"
                     onClick={() => setColumnTitle('')}
                 />
-            </div>
-        </div>
+            </Add>
+        </Wrapper>
     );
 };

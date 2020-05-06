@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './Labels.scss';
+import { Wrapper, Label, Icon } from './LabelsStyling';
 
 type Props = {
     labels: string[];
@@ -8,16 +8,12 @@ type Props = {
 
 export const Labels = ({ labels }: Props) => {
     return (
-        <div className="labels">
+        <Wrapper>
             {labels.map((label, index) => (
-                <div
-                    key={index}
-                    className="labels__label"
-                    style={{ backgroundColor: `var(--color-${label})` }}
-                />
+                <Label key={index} color={label} />
             ))}
 
-            <i className="labels__add fas fa-plus"></i>
-        </div>
+            <Icon className="fas fa-plus" />
+        </Wrapper>
     );
 };

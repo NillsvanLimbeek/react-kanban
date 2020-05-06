@@ -1,19 +1,22 @@
 import React from 'react';
+import { createGlobalStyle } from 'styled-components';
 
-import './assets/scss/main.scss';
-import './App.scss';
+import { BoardsProvider, ColumnsProvider, CardsProvider } from './context';
+import { Generic, Reset } from './styling';
 
-import { BoardsProvider } from './context/boards/boardsContext';
-import { ColumnsProvider } from './context/columns/columnsContext';
-import { CardsProvider } from './context/cards/cardsContext';
+import { Layout } from './views/layout/Layout';
 
-import { Layout } from './views//layout/Layout';
+const GlobalStyle = createGlobalStyle`
+    ${Reset};
+    ${Generic};
+`;
 
 function App() {
     return (
         <BoardsProvider>
             <ColumnsProvider>
                 <CardsProvider>
+                    <GlobalStyle />
                     <Layout />
                 </CardsProvider>
             </ColumnsProvider>
