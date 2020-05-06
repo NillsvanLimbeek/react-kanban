@@ -1,11 +1,9 @@
 import styled from 'styled-components';
 
-import { white, borderRadius } from '../../styling';
+import { white, borderRadius, absolute, fixed } from '../../styling';
 
 export const Background = styled.div`
-    position: fixed;
-    top: 0;
-    left: 0;
+    ${fixed()}
     z-index: 1000;
 
     width: 100vw;
@@ -16,9 +14,7 @@ export const Background = styled.div`
 `;
 
 export const Body = styled.div`
-    position: absolute;
-    left: 50%;
-    top: 25%;
+    ${absolute({ x: '50%', y: '25%' })}
     transform: translateX(-50%) translateY(-25%);
     z-index: 1001;
 

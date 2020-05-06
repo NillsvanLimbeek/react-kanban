@@ -1,15 +1,13 @@
 import styled from 'styled-components';
 
-import { grey } from '../../styling';
+import { grey, absolute } from '../../styling';
 
 export const Wrapper = styled.div`
     position: relative;
 `;
 
 export const Label = styled.label<{ focus: boolean }>`
-    position: absolute;
-    left: 6px;
-    top: 5px;
+    ${absolute({ y: '5px', x: '6px' })};
 
     font-size: 1.4rem;
     background: white;

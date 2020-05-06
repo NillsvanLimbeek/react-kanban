@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { FlexCenterAlign, FlexAlign, white, grey, black } from '../../styling';
+import { flexCenterAlign, flexAlign, white, grey, black } from '../../styling';
 
 export const Wrapper = styled.nav`
     display: flex;
@@ -14,12 +14,12 @@ export const Wrapper = styled.nav`
 `;
 
 export const Logo = styled.div`
-    ${FlexCenterAlign}
+    ${flexCenterAlign}
     flex: 1 0 auto;
 `;
 
 export const NavLink = styled.div`
-    ${FlexAlign}
+    ${flexAlign}
 
     height: 100%;
 

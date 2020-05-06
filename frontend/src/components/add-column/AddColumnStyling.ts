@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import {
-    FlexAlign,
+    flexAlign,
     white,
     borderRadius,
     boxShadow,
@@ -23,7 +23,7 @@ export const Input = styled.input`
 `;
 
 export const Add = styled.button`
-    ${FlexAlign}
+    ${flexAlign}
     justify-content: space-between;
 
     width: 100%;

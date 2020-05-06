@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { FlexCenterAlign, borderRadius, white } from '../../styling';
+import { flexCenterAlign, borderRadius, white } from '../../styling';
 
 export const Square = styled.div`
     height: 4rem;
@@ -12,7 +12,7 @@ export const Square = styled.div`
 `;
 
 export const Star = styled.i<{ favorite: boolean }>`
-    ${FlexCenterAlign}
+    ${flexCenterAlign}
 
     width: 100%;
     height: 100%;

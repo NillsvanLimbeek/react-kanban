@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { greyLight, borderRadius, white, grey } from '../../styling';
+import { greyLight, borderRadius, white, grey, getColor } from '../../styling';
 
 export const Card = styled.div`
     padding: 1rem;
@@ -19,11 +19,12 @@ export const Labels = styled.div`
     display: flex;
 `;
 
-export const Label = styled.div`
+export const Label = styled.div<{ color: string }>`
     width: 3rem;
     height: 3px;
 
     border-radius: 3px;
+    ${({ color }) => getColor(color)};
 
     &:not(:last-child) {
         margin-right: 5px;

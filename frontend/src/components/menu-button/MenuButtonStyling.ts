@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-import { FlexCenterAlign, black, grey } from '../../styling';
+import { flexCenterAlign, black, grey } from '../../styling';
 
 export const Button = styled.button`
-    ${FlexCenterAlign}
+    ${flexCenterAlign}
     flex: 0 0 7rem;
 
     height: 100%;

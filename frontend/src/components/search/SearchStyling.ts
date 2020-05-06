@@ -1,9 +1,17 @@
 import styled from 'styled-components';
 
-import { FlexAlign, black, grey, white, borderRadius } from '../../styling';
+import {
+    flexAlign,
+    black,
+    grey,
+    white,
+    borderRadius,
+    absolute,
+    fixed,
+} from '../../styling';
 
 export const Wrapper = styled.div`
-    ${FlexAlign}
+    ${flexAlign}
 
     position: relative;
 
@@ -26,17 +34,14 @@ export const Input = styled.input`
 `;
 
 export const Label = styled.label<{ active: boolean }>`
-    position: absolute;
-    left: 7.5px;
+    ${absolute({ x: '7.5px', y: '2.75rem' })}
     z-index: 1000;
 
     color: ${(props) => (props.active ? `${black}` : `${grey}`)};
 `;
 
 export const ModalBackground = styled.div`
-    position: fixed;
-    top: 0;
-    left: 0;
+    ${fixed()}
 
     height: 100vh;
     width: 100vw;
@@ -45,9 +50,7 @@ export const ModalBackground = styled.div`
 `;
 
 export const ModalBody = styled.div`
-    position: absolute;
-    top: 7rem;
-    left: 0;
+    ${absolute({ x: '7rem' })}
     z-index: 100;
 
     width: 35rem;

@@ -1,11 +1,9 @@
 import styled from 'styled-components';
 
-import { white, grey, black } from '../../styling';
+import { white, grey, black, absolute, fixed } from '../../styling';
 
 export const Body = styled.div`
-    position: absolute;
-    left: 0;
-    top: 0;
+    ${absolute()}
     z-index: 1001;
 
     height: 100vh;
@@ -18,9 +16,7 @@ export const Body = styled.div`
 `;
 
 export const Close = styled.i`
-    position: absolute;
-    right: 1.5rem;
-    top: 1.5rem;
+    ${absolute({ x: '1.5rem', y: '1.5rem' })}
 
     font-size: 2rem;
     color: ${grey};
@@ -32,9 +28,7 @@ export const Close = styled.i`
 `;
 
 export const Background = styled.div`
-    position: fixed;
-    top: 0;
-    left: 0;
+    ${fixed()}
     z-index: 1000;
 
     width: 100vw;

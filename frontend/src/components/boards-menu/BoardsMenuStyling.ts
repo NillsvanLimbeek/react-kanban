@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import {
-    FlexCenterAlign,
+    flexCenterAlign,
     grey,
     black,
     greyDark,
@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
 `;
 
 export const MenuButton = styled.button`
-    ${FlexCenterAlign}
+    ${flexCenterAlign}
 
     height: 100%;
 

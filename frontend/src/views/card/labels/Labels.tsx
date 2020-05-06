@@ -10,8 +10,7 @@ export const Labels = ({ labels }: Props) => {
     return (
         <Wrapper>
             {labels.map((label, index) => (
-                // TODO backgroundColor variable
-                <Label key={index} style={{ backgroundColor: `${label}` }} />
+                <Label key={index} color={label} />
             ))}
 
             <Icon className="fas fa-plus" />

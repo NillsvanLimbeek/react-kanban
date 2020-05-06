@@ -6,6 +6,13 @@ export const Generic = css`
     html {
         // 1REM
         font-size: 62.5%;
+        box-sizing: border-box;
+    }
+
+    *,
+    *:before,
+    *:after {
+        box-sizing: inherit;
     }
 
     body {

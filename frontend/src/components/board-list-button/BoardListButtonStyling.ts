@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-import { FlexAlign, grey, black, yellow, yellowDark } from '../../styling';
+import { flexAlign, grey, black, yellow, yellowDark } from '../../styling';
 
 export const Wrapper = styled.div`
-    ${FlexAlign}
+    ${flexAlign}
     justify-content: space-between;
 
     width: 85%;
@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Main = styled.div`
-    ${FlexAlign}
+    ${flexAlign}
 `;
 
 export const Square = styled.i`

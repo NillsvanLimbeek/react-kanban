@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 
-import { white, grey, borderRadius } from '../../styling';
+import { white, grey, borderRadius, absolute } from '../../styling';
 
 export const Wrapper = styled.div`
-    position: absolute;
-    top: 2.5rem;
+    ${absolute({ y: '2.5rem' })}
 
     width: 25rem;
 

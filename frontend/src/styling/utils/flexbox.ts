@@ -1,17 +1,17 @@
 import { css } from 'styled-components';
 
-export const FlexCenter = css`
+export const flexCenter = css`
     display: flex;
     justify-content: center;
 `;
 
-export const FlexCenterAlign = css`
+export const flexCenterAlign = css`
     display: flex;
     justify-content: center;
     align-items: center;
 `;
 
-export const FlexAlign = css`
+export const flexAlign = css`
     display: flex;
     align-items: center;
 `;
