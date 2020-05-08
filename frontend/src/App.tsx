@@ -1,7 +1,12 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 
-import { BoardsProvider, ColumnsProvider, CardsProvider } from './context';
+import {
+    BoardsProvider,
+    ColumnsProvider,
+    CardsProvider,
+    AuthProvider,
+} from './context';
 import { Generic, Reset } from './styling';
 
 import { Layout } from './views/layout/Layout';
@@ -13,14 +18,16 @@ const GlobalStyle = createGlobalStyle`
 
 function App() {
     return (
-        <BoardsProvider>
-            <ColumnsProvider>
-                <CardsProvider>
-                    <GlobalStyle />
-                    <Layout />
-                </CardsProvider>
-            </ColumnsProvider>
-        </BoardsProvider>
+        <AuthProvider>
+            <BoardsProvider>
+                <ColumnsProvider>
+                    <CardsProvider>
+                        <GlobalStyle />
+                        <Layout />
+                    </CardsProvider>
+                </ColumnsProvider>
+            </BoardsProvider>
+        </AuthProvider>
     );
 }
 
